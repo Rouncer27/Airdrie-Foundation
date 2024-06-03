@@ -1,0 +1,47 @@
+@use "../../../styles/abstracts/" as *;
+@use "../../../styles/global/headlines";
+
+.menu-links-item {
+  text-align: center;
+  border-bottom: 0.25rem solid $whiteColor;
+
+  .menu-links-item-list {
+    position: relative;
+    width: 100%;
+
+    .sub-menu-open-btn {
+      position: absolute;
+      right: 0;
+      top: 0.4rem;
+      width: 4rem;
+      height: 4rem;
+      transition: all 0.3s ease-in-out;
+      background-color: $primaryColor;
+      border: 0.1rem solid $blackColor;
+      border-radius: 50%;
+      color: $whiteColor;
+      font-size: 2.6rem;
+      line-height: 1;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $secondaryColor;
+      }
+    }
+
+    .menu-links-item-link {
+      @extend .hl-three;
+      display: block;
+      width: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      color: $whiteColor;
+      cursor: pointer;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+}

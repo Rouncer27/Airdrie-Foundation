@@ -1,0 +1,10 @@
+---
+import { Image } from "astro:assets";
+import "./mainLogo.scss";
+---
+
+<div class="main-logo">
+    <div class="main-logo-wrapper">
+        <Image src={Astro.props.data.mainLogo.sourceUrl} alt={Astro.props.data.mainLogo.altText} inferSize={true} />
+    </div>
+</div>

@@ -1,0 +1,119 @@
+@use "../../../styles/global/paragraphs";
+@use "../../../styles/global/buttons";
+@use "../../../styles/abstracts/" as *;
+
+.main-nav {
+  width: 100%;
+  margin-top: 5rem;
+
+  @media (min-width: 1081px) {
+    margin-top: 0;
+  }
+
+  nav {
+    width: 100%;
+
+    .main-nav-top-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      @media (min-width: 1081px) {
+        justify-content: flex-end;
+      }
+
+      li {
+        position: relative;
+        margin: 1rem 2rem;
+
+        a {
+          @extend .p-three;
+          border-bottom: 0.2rem solid transparent;
+          color: $whiteColor;
+
+          text-transform: uppercase;
+
+          &:hover {
+            color: $secondaryColor;
+            border-bottom-color: $secondaryColor;
+          }
+        }
+
+        a.main-nav-current {
+          color: $secondaryColor;
+          font-weight: bold;
+          border-bottom-color: $secondaryColor;
+
+          &:hover {
+            cursor: default;
+          }
+        }
+
+        .main-nav-sub-menu {
+          position: absolute;
+          top: calc(100% + 0.5rem);
+          left: 0;
+          width: 27.5rem;
+          padding: 1rem;
+          background-color: $secondaryColor;
+          transition: all 0.3s ease-in-out;
+          opacity: 0;
+          visibility: hidden;
+          z-index: 100;
+
+          &.main-nav-sub-menu-active {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          li {
+            a {
+              font-weight: normal;
+              &:hover {
+                color: $blackColor;
+              }
+            }
+          }
+        }
+      }
+
+      li.main-nav-top-list-item-cta-one {
+        width: calc(50% - 4rem);
+        text-align: right;
+
+        @media (min-width: 1081px) {
+          width: auto;
+          text-align: center;
+        }
+
+        a {
+          @extend .btn-one;
+        }
+      }
+
+      li.main-nav-top-list-item-cta-two {
+        width: calc(50% - 4rem);
+        text-align: left;
+
+        @media (min-width: 1081px) {
+          width: auto;
+          text-align: center;
+        }
+
+        a {
+          @extend .btn-two;
+          border-color: $whiteColor;
+          background-color: transparent;
+          color: $whiteColor;
+
+          &:hover {
+            color: $blackColor;
+            background-color: $whiteColor;
+          }
+        }
+      }
+    }
+  }
+}
