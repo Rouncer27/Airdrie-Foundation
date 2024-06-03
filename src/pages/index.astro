@@ -1,7 +1,30 @@
 ---
+import Headline from "../components/shared/Headline.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import Button from "../components/shared/Button.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <h1>Home Page</h1>
+  <Headline>Aliquam tincidunt mauris eu risus.</Headline>
+  <Headline hlstyle="two">Aliquam tincidunt mauris eu risus.</Headline>
+  <Headline hlstyle="three">Aliquam tincidunt mauris eu risus.</Headline>
+  <Headline hlstyle="four">Aliquam tincidunt mauris eu risus.</Headline>
+  <Paragraph
+    >Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
+    urna nibh viverra non semper suscipit posuere a pede.</Paragraph
+  >
+  <Paragraph pstyle="two"
+    >Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
+    urna nibh viverra non semper suscipit posuere a pede.</Paragraph
+  >
+  <Paragraph pstyle="three"
+    >Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
+    urna nibh viverra non semper suscipit posuere a pede.</Paragraph
+  >
+  <Button>Donate Now</Button>
+  <Button btnstyle="two">Donate Now</Button>
 </Layout>

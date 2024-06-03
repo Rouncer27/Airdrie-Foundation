@@ -43,15 +43,15 @@ h6 {
 }
 
 h1 {
-  @include utils.font-sizer(3, 4.9, 76.8, 150, 3);
+  @include utils.font-sizer(2.8, 3.5, 76.8, 150, 2.8);
 }
 
 h2 {
-  @include utils.font-sizer(2.6, 3, 76.8, 150, 2.6);
+  @include utils.font-sizer(2.6, 3.3, 76.8, 150, 2.6);
 }
 
 h3 {
-  @include utils.font-sizer(2.8, 3.2, 76.8, 150, 2.8);
+  @include utils.font-sizer(2.4, 3, 76.8, 150, 2.4);
 }
 
 h4 {
@@ -67,14 +67,14 @@ h6 {
 }
 
 p {
-  @include utils.font-sizer(1.8, 2, 76.8, 120);
+  @include utils.font-sizer(1.8, 2, 76.8, 150, 1.8);
   margin: 0;
   margin-bottom: 1.5em;
   line-height: 1.4;
 }
 
 a {
-  @include utils.font-sizer(1.8, 2, 76.8, 120);
+  @include utils.font-sizer(1.8, 2, 76.8, 150, 1.8);
   text-decoration: none;
   color: var.$primaryColor;
   font-weight: normal;
