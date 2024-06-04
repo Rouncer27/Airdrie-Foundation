@@ -26,8 +26,20 @@ const HeroSlider = ({ data }) => {
         {data.slides.map((slide, index) => {
           return (
             <div className="home-hero-slider-slide" key={index}>
-              <div className="home-hero-slider-slide-inner">
+              <div className="home-hero-slider-slide-image">
                 <img src={slide.image.sourceUrl} alt={slide.image.altText} />
+              </div>
+
+              <div className="home-hero-slider-slide-content">
+                <div className="home-hero-slider-slide-content-inner">
+                  <div
+                    className="home-hero-slider-slide-content-inner-para"
+                    dangerouslySetInnerHTML={{ __html: slide.content }}
+                  />
+                  <div>
+                    <a href={slide.link.uri}>{slide.linkText}</a>
+                  </div>
+                </div>
               </div>
             </div>
           );

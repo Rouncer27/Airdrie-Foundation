@@ -19,11 +19,17 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                   content
                   linkText
                   image {
-                  altText
-                  sourceUrl
-							  }
-              }
-						}
+                    altText
+                    sourceUrl
+							    }
+                  link {
+                    ... on Page {
+                      id
+                      uri
+                    }
+                  }
+                }
+						  }
 
 						# START Hero section #
 
