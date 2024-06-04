@@ -1,7 +1,40 @@
 ---
+import { Image } from "astro:assets";
+import Headline from "../shared/Headline.astro";
+import Wrapper from "../shared/Wrapper.astro";
 import "./getInvolved.scss";
+
+console.log(Astro.props.data);
 ---
 
-<div>
-  <h1>Get Involved</h1>
+<div class="involved">
+  <Wrapper>
+    <div class="involved-title">
+      <Headline hlstyle="one">How to get involved</Headline>
+    </div>
+
+    <div class="involved-blocks">
+      {
+        Astro.props.data.blocks.map((block) => {
+          return (
+            <div class="involved-block">
+              <div class="involved-block-image">
+                <div class="involved-block-image-inner">
+                  <Image
+                    src={block.image.sourceUrl}
+                    alt={block.image.altText}
+                    inferSize={true}
+                  />
+                </div>
+              </div>
+              <div class="involved-block-content">
+                <h3>{block.title}</h3>
+                <div set:html={block.content} />
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Wrapper>
 </div>
