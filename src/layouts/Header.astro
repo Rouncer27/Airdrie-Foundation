@@ -67,23 +67,21 @@ const {
 ---
 
 <header class="header">
-  <Wrapper classes="header-wrap">
-    <div class="header-logo">
-      <h1>
-        <a href="/">
-          <MainLogo data={logoOptions} />
-        </a>
-        <span>The Airdrie and District Community Foundation</span>
-      </h1>
-    </div>
-    <div class="header-navigation">
-      <MainNav
-        client:only="react"
-        menuItems={menuItems.nodes}
-        pathname={Astro.url.pathname}
-      />
-    </div>
-  </Wrapper>
+  <div class="header-logo">
+    <h1>
+      <a href="/">
+        <MainLogo data={logoOptions} />
+      </a>
+      <span>The Airdrie and District Community Foundation</span>
+    </h1>
+  </div>
+  <div class="header-navigation">
+    <MainNav
+      client:only="react"
+      menuItems={menuItems.nodes}
+      pathname={Astro.url.pathname}
+    />
+  </div>
   <div class="header-mobile">
     <MobileNav client:only="react" mainMenu={mobile} mainLogo={logoOptions} />
   </div>

@@ -82,21 +82,8 @@ const Hamburger = ({ state, mainMenu, mainLogo }) => {
                 })}
                 <div className="menu-links-item">
                   <li className="menu-links-item-list">
-                    <a
-                      className="menu-links-item-link"
-                      href="https://members.emc2services.ca/"
-                    >
-                      Book Now
-                    </a>
-                  </li>
-                </div>
-                <div className="menu-links-item">
-                  <li className="menu-links-item-list">
-                    <a
-                      className="menu-links-item-link"
-                      href="https://members.emc2services.ca/login/true"
-                    >
-                      Login
+                    <a className="menu-links-item-link" href="#">
+                      Donate Now
                     </a>
                   </li>
                 </div>

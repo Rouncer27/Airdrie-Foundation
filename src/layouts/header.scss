@@ -1,22 +1,50 @@
 @use "../styles/abstracts/" as *;
 
 .header {
+  position: relative;
   background: linear-gradient(
     to bottom,
     $secondaryColor 0rem,
-    $secondaryColor 3.5rem,
-    $shadowColor 3.5rem,
-    $shadowColor 100%
+    $secondaryColor 2.7rem,
+    rgba($whiteColor, 0.8) 2.7rem,
+    rgba($whiteColor, 0.8) 100%
   );
-  padding-top: 1rem;
+  padding-top: 2.7rem;
+
+  &-wrap {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 
   &-logo {
-    width: calc(100%);
-    max-width: 10rem;
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    left: 2rem;
+    width: 15rem;
+    height: 15rem;
+    margin: auto;
+    padding: 1rem;
+    background-color: $whiteColor;
 
-    @media (min-width: 1081px) {
-      width: calc(10%);
-      max-width: 10rem;
+    @media (min-width: 768px) {
+      width: 15rem;
+      height: 15rem;
+      margin: auto;
+    }
+
+    @media (min-width: 1025px) {
+      top: 0;
+      right: auto;
+      left: 2rem;
+      width: 15rem;
+      height: 15rem;
+      margin: 0;
+    }
+
+    @media (min-width: 1040px) {
+      width: 20rem;
+      height: 20rem;
     }
 
     h1 {
@@ -37,8 +65,8 @@
       align-self: center;
     }
 
-    @media (min-width: 1081px) {
-      width: calc(90%);
+    @media (min-width: 1025px) {
+      width: calc(100%);
       align-self: flex-end;
     }
   }
