@@ -1,0 +1,110 @@
+@use "../styles/abstracts/" as *;
+@use "../styles/global/buttons";
+@use "../styles/global/paragraphs";
+
+.main-footer {
+  background-color: $primaryColor;
+  padding: 3rem 0;
+
+  &-wrap {
+    align-items: flex-start;
+  }
+
+  &-contact {
+    width: calc(100%);
+
+    @media (min-width: 1025px) {
+      width: calc(100% / 3);
+      padding: 0 1rem;
+    }
+
+    &-donate {
+      width: 100%;
+
+      a {
+        @extend .btn-one;
+        border-radius: 0;
+        background-color: transparent;
+        color: $whiteColor;
+        border-color: $whiteColor;
+      }
+    }
+
+    &-info {
+      width: 100%;
+      margin: 1.5rem 0;
+
+      p,
+      a {
+        @extend .p-three;
+        margin: 0;
+        color: $whiteColor;
+      }
+    }
+
+    &-address {
+      width: 100%;
+
+      p {
+        @extend .p-three;
+        margin: 0;
+        color: $whiteColor;
+      }
+    }
+  }
+
+  &-newsletter {
+    width: calc(100%);
+    background-color: rgba($blackColor, 0.23);
+
+    @media (min-width: 1025px) {
+      width: calc(100% / 3);
+      padding: 3.4rem 2rem;
+    }
+
+    p {
+      @extend .p-one;
+      margin: 0;
+      margin-bottom: 2.2rem;
+      color: $whiteColor;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+    a {
+      @extend .btn-two;
+    }
+  }
+
+  &-social {
+    width: calc(100%);
+
+    @media (min-width: 1025px) {
+      width: calc(100% / 3);
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    p {
+      @extend .p-three;
+      margin: 0;
+      color: $whiteColor;
+      text-transform: uppercase;
+    }
+
+    &-members {
+      margin-top: 2.5rem;
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      li {
+        max-width: 18rem;
+        margin: auto;
+      }
+    }
+  }
+}
