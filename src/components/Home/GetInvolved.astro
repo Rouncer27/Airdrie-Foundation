@@ -3,8 +3,6 @@ import { Image } from "astro:assets";
 import Headline from "../shared/Headline.astro";
 import Wrapper from "../shared/Wrapper.astro";
 import "./getInvolved.scss";
-
-console.log(Astro.props.data);
 ---
 
 <div class="involved">
@@ -15,9 +13,9 @@ console.log(Astro.props.data);
 
     <div class="involved-blocks">
       {
-        Astro.props.data.blocks.map((block) => {
+        Astro.props.data.blocks.map((block, index) => {
           return (
-            <div class="involved-block">
+            <div class={`involved-block involved-block-${index + 1}`}>
               <div class="involved-block-image">
                 <div class="involved-block-image-inner">
                   <Image
@@ -27,9 +25,15 @@ console.log(Astro.props.data);
                   />
                 </div>
               </div>
-              <div class="involved-block-content">
-                <h3>{block.title}</h3>
-                <div set:html={block.content} />
+              <div class="involved-block-contentwrap">
+                <div class="involved-block-content">
+                  <h3>{block.title}</h3>
+                  <div set:html={block.content} />
+                </div>
+
+                <div class="involved-block-link">
+                  <a href={block.pageLink.uri}>{block.linkText}</a>
+                </div>
               </div>
             </div>
           );
