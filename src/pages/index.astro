@@ -1,30 +1,60 @@
 ---
-import Headline from "../components/shared/Headline.astro";
-import Paragraph from "../components/shared/Paragraph.astro";
-import Button from "../components/shared/Button.astro";
+import HeroSlider from "../components/Home/HeroSlider";
 import Layout from "../layouts/Layout.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+			query homePageQuery {
+				page(id: "/", idType: URI) {
+					homePage {
+
+						# START Hero section #
+						homeHeroSliderComponent {
+							slides {
+                  content
+                  linkText
+                  image {
+                  altText
+                  sourceUrl
+							  }
+              }
+						}
+
+						# START Hero section #
+
+						# START Hero section #
+
+						# START Hero section #
+
+						# START Hero section #
+
+						# START Hero section #
+					
+						# START Hero section #
+					
+						# START Hero section #
+					}
+				}
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
+
+// console.log("page", page.homePage);
 ---
 
 <Layout title="Welcome to Astro.">
-  <Headline>Aliquam tincidunt mauris eu risus.</Headline>
-  <Headline hlstyle="two">Aliquam tincidunt mauris eu risus.</Headline>
-  <Headline hlstyle="three">Aliquam tincidunt mauris eu risus.</Headline>
-  <Headline hlstyle="four">Aliquam tincidunt mauris eu risus.</Headline>
-  <Paragraph
-    >Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
-    urna nibh viverra non semper suscipit posuere a pede.</Paragraph
-  >
-  <Paragraph pstyle="two"
-    >Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
-    urna nibh viverra non semper suscipit posuere a pede.</Paragraph
-  >
-  <Paragraph pstyle="three"
-    >Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-    Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse
-    urna nibh viverra non semper suscipit posuere a pede.</Paragraph
-  >
-  <Button>Donate Now</Button>
-  <Button btnstyle="two">Donate Now</Button>
+  <HeroSlider
+    client:only="react"
+    data={page.homePage.homeHeroSliderComponent}
+  />
 </Layout>

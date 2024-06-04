@@ -1,7 +1,11 @@
 @use "../styles/abstracts/" as *;
 
 .header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 2.7rem;
   background: linear-gradient(
     to bottom,
     $secondaryColor 0rem,
@@ -9,7 +13,7 @@
     rgba($whiteColor, 0.8) 2.7rem,
     rgba($whiteColor, 0.8) 100%
   );
-  padding-top: 2.7rem;
+  z-index: 999999;
 
   &-wrap {
     margin-top: 0 !important;
