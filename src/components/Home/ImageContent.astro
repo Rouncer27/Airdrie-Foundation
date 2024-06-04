@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import "./imageContent.scss";
+---
+
+<div class="imgcont">
+  <div class="imgcont-wrapper">
+    <div class="imgcont-content">
+      <div class="imgcont-content-inner">
+        <div
+          class="imgcont-content-top"
+          set:html={Astro.props.data.contentTop}
+        />
+        <div
+          class="imgcont-content-bot"
+          set:html={Astro.props.data.contentBottom}
+        />
+      </div>
+    </div>
+    <div class="imgcont-image">
+      <div class="imgcont-image-wrap">
+        <Image
+          src={Astro.props.data.image.sourceUrl}
+          alt={Astro.props.data.image.altText}
+          inferSize={true}
+        />
+      </div>
+    </div>
+  </div>
+</div>

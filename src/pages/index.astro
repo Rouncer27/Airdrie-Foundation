@@ -1,6 +1,12 @@
 ---
 import HeroSlider from "../components/Home/HeroSlider";
+import ImageContent from "../components/Home/ImageContent.astro";
+import GetInvolved from "../components/Home/GetInvolved.astro";
 import Layout from "../layouts/Layout.astro";
+import NumberStrip from "../components/Home/NumberStrip.astro";
+import QuoteLink from "../components/Home/QuoteLink.astro";
+import ImageContentLink from "../components/Home/ImageContentLink.astro";
+import ImagesStrip from "../components/Home/ImagesStrip.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -24,7 +30,6 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 							    }
                   link {
                     ... on Page {
-                      id
                       uri
                     }
                   }
@@ -33,15 +38,87 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
 						# START Hero section #
 
-						# START Hero section #
+            imageContentComponent {
+              contentTop
+              contentBottom
+              image {
+                altText
+                sourceUrl
+              }
+            }
 
 						# START Hero section #
 
-						# START Hero section #
+            getInvolvedComponent {
+              blocks {
+                icon {
+                  altText
+                  sourceUrl
+                }
+                image {
+                  altText
+                  sourceUrl
+                }
+                title
+                content
+                linkText
+                pageLink {
+                  ... on Page {
+                      uri
+                    }
+                }
+              }
+            }
 
 						# START Hero section #
+
+            numbersStripComponent {
+              statOneNumber
+              statOneTitle
+              statTwoNumber
+              statTwoTitle
+            }
+
+						# START Hero section #
+
+            quoteLinkComponent {
+              content
+              author
+              linkText
+              linkUrl {
+                ... on Page {
+                  uri
+                }
+              }
+            }
+
+						# START Hero section #
+
+            imageContentLinkComponent {
+              image {
+                altText
+                sourceUrl
+              }
+              title
+              content
+              linkText
+              linkUrl {
+                ... on Page {
+                  uri
+                }
+              }
+            }
 					
 						# START Hero section #
+
+            imagesStripComponent {
+              images {
+                image {
+                  altText
+                  sourceUrl
+                }
+              }
+            }
 					
 						# START Hero section #
 					}
@@ -63,4 +140,10 @@ const {
     client:only="react"
     data={page.homePage.homeHeroSliderComponent}
   />
+  <ImageContent data={page.homePage.imageContentComponent} />
+  <GetInvolved data={page.homePage.getInvolvedComponent} />
+  <NumberStrip data={page.homePage.numbersStripComponent} />
+  <QuoteLink data={page.homePage.quoteLinkComponent} />
+  <ImageContentLink data={page.homePage.imageContentLinkComponent} />
+  <ImagesStrip data={page.homePage.imagesStripComponent} />
 </Layout>
