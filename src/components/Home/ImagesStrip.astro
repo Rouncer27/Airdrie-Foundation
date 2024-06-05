@@ -1,7 +1,22 @@
 ---
+import { Image } from "astro:assets";
 import "./imagesStrip.scss";
 ---
 
-<div>
-  <h1>Images Strip</h1>
+<div class="imgstrip">
+  <div class="imgstrip-wrapper">
+    {
+      Astro.props.data.images.map((image) => {
+        return (
+          <div class="imgstrip-img">
+            <Image
+              src={image.image.sourceUrl}
+              alt={image.image.altText}
+              inferSize={true}
+            />
+          </div>
+        );
+      })
+    }
+  </div>
 </div>
