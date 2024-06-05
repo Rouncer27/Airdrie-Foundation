@@ -1,0 +1,37 @@
+@use "../../styles/global/paragraphs";
+@use "../../styles/global/buttons";
+
+.quotelink {
+  &-inner {
+    width: 100%;
+    max-width: 85rem;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  &-quote {
+    width: 100%;
+
+    p {
+      @extend .p-one;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-author {
+    width: 100%;
+
+    p {
+      @extend .p-one;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-link {
+    width: 100%;
+
+    a {
+      @extend .btn-one;
+    }
+  }
+}
