@@ -1,7 +1,27 @@
 ---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
 import "./imageContentLink.scss";
+import Headline from "../shared/Headline.astro";
 ---
 
-<div>
-  <h1>Image By Content Link</h1>
+<div class="imgconlnk">
+  <Wrapper>
+    <div class="imgconlnk-image">
+      <Image
+        src={Astro.props.data.image.sourceUrl}
+        alt={Astro.props.data.image.altText}
+        inferSize={true}
+      />
+    </div>
+    <div class="imgconlnk-content">
+      <div class="imgconlnk-content-title">
+        <Headline ele="h2" hlstyle="three">{Astro.props.data.title}</Headline>
+      </div>
+      <div class="imgconlnk-content-para" set:html={Astro.props.data.content} />
+      <div class="imgconlnk-content-link">
+        <a href={Astro.props.data.linkUrl.uri}>{Astro.props.data.linkText}</a>
+      </div>
+    </div>
+  </Wrapper>
 </div>
