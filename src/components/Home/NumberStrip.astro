@@ -1,7 +1,25 @@
 ---
+import Wrapper from "../shared/Wrapper.astro";
 import "./numberStrip.scss";
+
+import bgimg from "./assets/num-strip.jpg";
+import { Image } from "astro:assets";
 ---
 
-<div>
-  <h1>Number Strip</h1>
+<div class="numstrip">
+  <Wrapper classes="numstrip-wrapper">
+    <div class="numstrip-one">
+      <p class="numstrip-one-number">&#36;{Astro.props.data.statOneNumber}</p>
+      <p class="numstrip-one-title">{Astro.props.data.statOneTitle}</p>
+    </div>
+    <div class="numstrip-two">
+      <p class="numstrip-two-number">&#36;{Astro.props.data.statTwoNumber}</p>
+      <p class="numstrip-two-title">{Astro.props.data.statTwoTitle}</p>
+    </div>
+  </Wrapper>
+
+  <div class="numstrip-grimg">
+    <Image src={bgimg} alt={""} width={bgimg.width} height={bgimg.height} />
+  </div>
+  <div class="numstrip-overlay"></div>
 </div>
