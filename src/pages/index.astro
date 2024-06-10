@@ -7,7 +7,7 @@ import NumberStrip from "../components/Home/NumberStrip.astro";
 import QuoteLink from "../components/Home/QuoteLink.astro";
 import ImageContentLink from "../components/Home/ImageContentLink.astro";
 import ImagesStrip from "../components/Home/ImagesStrip.astro";
-import Newsletter from "../components/Home/Newsletter.astro";
+import Newsletter from "../components/Home/Newsletter";
 import ColourQuote from "../components/Home/ColourQuote.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -159,6 +159,6 @@ const {
   <QuoteLink data={page.homePage.quoteLinkComponent} />
   <ImageContentLink data={page.homePage.imageContentLinkComponent} />
   <ImagesStrip data={page.homePage.imagesStripComponent} />
-  <Newsletter data={page.homePage.newsletterComponent} />
+  <Newsletter client:only="react" data={page.homePage.newsletterComponent} />
   <ColourQuote data={page.homePage.colourQuoteComponent} />
 </Layout>

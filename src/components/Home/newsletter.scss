@@ -1,8 +1,26 @@
 @use "../../styles/abstracts/" as *;
+@use "../../styles/global/headlines";
 @use "../../styles/global/paragraphs";
+@use "../../styles/global/wrappers";
 
 .newsletter-sign {
+  padding: 6rem 0;
+  border-top: solid 1.8rem $shadowColor;
   background-color: $blackColor;
+
+  &-wrapper {
+    @extend .wrap;
+    @media (min-width: $blDeskSm) {
+      max-width: 110rem;
+    }
+
+    @media (min-width: $blDeskMd) {
+      max-width: 125rem;
+    }
+    @media (min-width: $blDeskLg) {
+      max-width: 150rem;
+    }
+  }
 
   &-content {
     width: 100%;
@@ -18,24 +36,50 @@
     }
 
     h2 {
+      @extend .hl-one;
+      margin-top: 0;
       margin-bottom: 0;
-      font-weight: 700 !important;
+      font-weight: 700;
       text-transform: uppercase;
     }
 
     h3 {
+      @extend .hl-three;
       margin-top: 0;
       font-weight: 300;
     }
 
     p {
       @extend .p-two;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
 
     &-inner {
       max-width: 45rem;
       margin-right: auto;
       margin-left: 0;
+    }
+  }
+
+  &-form {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: calc(50%);
+    }
+
+    .newsletter-form {
+      width: 100%;
+
+      &-input-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+      }
     }
   }
 }
