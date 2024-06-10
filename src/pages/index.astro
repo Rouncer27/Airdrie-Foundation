@@ -7,6 +7,8 @@ import NumberStrip from "../components/Home/NumberStrip.astro";
 import QuoteLink from "../components/Home/QuoteLink.astro";
 import ImageContentLink from "../components/Home/ImageContentLink.astro";
 import ImagesStrip from "../components/Home/ImagesStrip.astro";
+import Newsletter from "../components/Home/Newsletter.astro";
+import ColourQuote from "../components/Home/ColourQuote.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -121,6 +123,17 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             }
 					
 						# START Hero section #
+
+            newsletterComponent {
+              title
+              subTitles
+              content
+            }
+            # START Hero section #
+            colourQuoteComponent {
+              quote
+              quoteAuthor
+            }
 					}
 				}
 			}
@@ -146,4 +159,6 @@ const {
   <QuoteLink data={page.homePage.quoteLinkComponent} />
   <ImageContentLink data={page.homePage.imageContentLinkComponent} />
   <ImagesStrip data={page.homePage.imagesStripComponent} />
+  <Newsletter data={page.homePage.newsletterComponent} />
+  <ColourQuote data={page.homePage.colourQuoteComponent} />
 </Layout>

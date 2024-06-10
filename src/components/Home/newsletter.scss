@@ -1,0 +1,41 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.newsletter-sign {
+  background-color: $blackColor;
+
+  &-content {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: calc(50%);
+    }
+
+    h2,
+    h3,
+    p {
+      color: $whiteColor;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-weight: 700 !important;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-weight: 300;
+    }
+
+    p {
+      @extend .p-two;
+    }
+
+    &-inner {
+      max-width: 45rem;
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
+}
