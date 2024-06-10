@@ -2,6 +2,7 @@
 @use "../../styles/global/headlines";
 @use "../../styles/global/paragraphs";
 @use "../../styles/global/wrappers";
+@use "../../styles/global/buttons";
 
 .newsletter-sign {
   padding: 6rem 0;
@@ -79,6 +80,16 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         width: 100%;
+      }
+
+      .button-wrapper {
+        width: 100%;
+
+        button {
+          @extend .btn-two;
+          padding-right: 2rem;
+          padding-left: 2rem;
+        }
       }
     }
   }

@@ -78,6 +78,11 @@ const Newsletter = ({ data }) => {
                 size="full"
               />
             </div>
+
+            <div className="button-wrapper">
+              <button type="submit">Submit</button>
+              <p className="message"></p>
+            </div>
           </form>
         </div>
       </div>

@@ -6,8 +6,8 @@
   margin-bottom: 3rem;
 
   @media (min-width: 768px) {
-    width: calc(50% - 7.2rem);
-    margin-right: 7.2rem;
+    width: calc(50% - 2rem);
+    margin-right: 2rem;
   }
 
   label {
@@ -28,6 +28,8 @@
   }
 
   &-full {
-    width: calc(100%);
+    @media (min-width: 768px) {
+      width: calc(100% - 2rem);
+    }
   }
 }
