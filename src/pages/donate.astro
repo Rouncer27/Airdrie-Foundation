@@ -1,7 +1,69 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroIntro from "../components/Donate/HeroIntro.astro";
+import ContentButton from "../components/Donate/ContentButton.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+			query donatePageQuery {
+        page(id: "/donate", idType: URI) {
+          donatePage {
+
+            # START Hero section #
+
+            heroIntroComponent {
+              title
+              content
+              image {
+                altText
+                sourceUrl
+              }
+            }
+
+            # START Hero section #
+
+            contentButtonComponent {
+              title
+              subTitle
+              content
+              buttonText
+              buttonLink
+            }
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+          }
+        }			
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
+
+console.log("DONATE: ", page);
 ---
 
 <Layout title="Welcome to Astro.">
-  <h1>Donate</h1>
+  <HeroIntro data={page.donatePage.heroIntroComponent} />
+  <ContentButton data={page.donatePage.contentButtonComponent} />
 </Layout>

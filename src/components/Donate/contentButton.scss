@@ -1,0 +1,36 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.content-button {
+  padding: 4.5rem 0;
+
+  &-titles {
+    width: 100%;
+    max-width: 100rem;
+
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      color: $primaryColor;
+    }
+
+    h3 {
+      color: $primaryColor;
+      font-weight: normal;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    max-width: 100rem;
+
+    p {
+      @extend .p-two;
+    }
+  }
+
+  &-link {
+    width: 100%;
+    max-width: 100rem;
+  }
+}
