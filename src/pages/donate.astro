@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/Donate/HeroIntro.astro";
 import ContentButton from "../components/Donate/ContentButton.astro";
+import IconPoints from "../components/Donate/IconPoints.astro";
+import ContentBlocks from "../components/Donate/ContentBlocks.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -37,7 +39,32 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+            iconPointsComponent {
+              points {
+                icon {
+                  altText
+                  sourceUrl
+                }
+                title
+                content
+              }
+            }
+
             # START Hero section #
+
+            contentBlocksComponent {
+              blocks {
+                image {
+                  altText
+                  sourceUrl
+                }
+                title
+                subTitle
+                content
+                buttonText
+                buttonLink
+              }
+            }
 
             # START Hero section #
 
@@ -66,4 +93,6 @@ console.log("DONATE: ", page);
 <Layout title="Welcome to Astro.">
   <HeroIntro data={page.donatePage.heroIntroComponent} />
   <ContentButton data={page.donatePage.contentButtonComponent} />
+  <IconPoints data={page.donatePage.iconPointsComponent} />
+  <ContentBlocks data={page.donatePage.contentBlocksComponent} />
 </Layout>
