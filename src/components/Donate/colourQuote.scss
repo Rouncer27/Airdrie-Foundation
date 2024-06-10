@@ -1,0 +1,15 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.donate-colour-quote {
+  width: 100%;
+  padding: 5rem 0;
+  background-color: rgba(11, 95, 99, 0.6);
+
+  p {
+    @extend .p-one;
+    margin: 0;
+    text-align: center;
+    color: $whiteColor;
+  }
+}

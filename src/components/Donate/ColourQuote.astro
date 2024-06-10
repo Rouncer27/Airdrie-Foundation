@@ -1,0 +1,18 @@
+---
+import Wrapper from "../shared/Wrapper.astro";
+import "./colourQuote.scss";
+---
+
+<div class="donate-colour-quote">
+  <Wrapper>
+    <div class="donate-colour-quote-content">
+      <div
+        class="donate-colour-quote-content-para"
+        set:html={Astro.props.data.quote}
+      />
+      <div class="donate-colour-quote-content-author">
+        <p>&#8211; {Astro.props.data.quoteAuthor}</p>
+      </div>
+    </div>
+  </Wrapper>
+</div>

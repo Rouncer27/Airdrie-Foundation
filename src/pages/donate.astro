@@ -4,6 +4,7 @@ import HeroIntro from "../components/Donate/HeroIntro.astro";
 import ContentButton from "../components/Donate/ContentButton.astro";
 import IconPoints from "../components/Donate/IconPoints.astro";
 import ContentBlocks from "../components/Donate/ContentBlocks.astro";
+import ColourQuote from "../components/Donate/ColourQuote.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -68,6 +69,11 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+            colourQuoteComponent {
+              quote
+              quoteAuthor
+            }
+
             # START Hero section #
 
             # START Hero section #
@@ -93,4 +99,5 @@ const {
   <ContentButton data={page.donatePage.contentButtonComponent} />
   <IconPoints data={page.donatePage.iconPointsComponent} />
   <ContentBlocks data={page.donatePage.contentBlocksComponent} />
+  <ColourQuote data={page.donatePage.colourQuoteComponent} />
 </Layout>
