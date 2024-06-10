@@ -1,0 +1,63 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.donate-content-blocks {
+  &-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &-block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    &-reversed {
+      flex-direction: row-reverse;
+    }
+
+    &-image {
+      width: calc(100%);
+
+      @media (min-width: 768px) {
+        width: calc(50%);
+      }
+    }
+
+    &-info {
+      width: calc(100%);
+
+      @media (min-width: 768px) {
+        width: calc(50%);
+      }
+
+      @media (min-width: 1025px) {
+        padding: 2rem 7.8rem;
+      }
+
+      &-inner {
+        max-width: 60rem;
+
+        h2 {
+          margin-bottom: 1rem;
+          color: $accentColor;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        h3 {
+          margin-top: 0rem;
+          margin-bottom: 3rem;
+          color: $primaryColor;
+        }
+
+        p {
+          @extend .p-one;
+        }
+      }
+    }
+  }
+}

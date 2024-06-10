@@ -1,7 +1,48 @@
 ---
+import { Image } from "astro:assets";
 import "./contentBlocks.scss";
+import Headline from "../shared/Headline.astro";
+import Button from "../shared/Button.astro";
 ---
 
-<div>
-  <h1>Content Blocks</h1>
+<div class="donate-content-blocks">
+  <div class="donate-content-blocks-wrapper">
+    {
+      Astro.props.data.blocks.map((block, index) => {
+        const reversed = (index + 1) % 2 === 0;
+
+        return (
+          <div
+            class={`donate-content-blocks-block${reversed ? " donate-content-blocks-block-reversed" : ""}`}
+          >
+            <div class="donate-content-blocks-block-image">
+              <div>
+                <Image
+                  src={block.image.sourceUrl}
+                  alt={block.image.altText}
+                  inferSize={true}
+                />
+              </div>
+            </div>
+            <div class="donate-content-blocks-block-info">
+              <div class="donate-content-blocks-block-info-inner">
+                <div>
+                  <Headline ele="h2" hlstyle="one">
+                    {block.title}
+                  </Headline>
+                  <Headline ele="h3" hlstyle="two">
+                    {block.subTitle}
+                  </Headline>
+                </div>
+                <div set:html={block.content} />
+                <div>
+                  <Button href={block.buttonUrl}>{block.buttonText}</Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
 </div>

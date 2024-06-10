@@ -86,8 +86,6 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 const {
   data: { page },
 } = await response.json();
-
-console.log("DONATE: ", page);
 ---
 
 <Layout title="Welcome to Astro.">
