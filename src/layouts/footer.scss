@@ -99,6 +99,71 @@
       text-transform: uppercase;
     }
 
+    &-icons {
+      ul {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;
+
+        li {
+          margin-right: 0.5rem;
+          padding: 0 0.5rem;
+
+          a {
+            @extend .p-three;
+            display: block;
+            position: relative;
+            width: 4rem;
+            height: 4rem;
+            padding: 1rem;
+            border-radius: 50%;
+            background-color: $whiteColor;
+
+            @media (min-width: 768px) {
+              width: 2.6rem;
+              height: 2.6rem;
+            }
+            @media (min-width: 1025px) {
+              width: 4rem;
+              height: 4rem;
+              padding: 0.75rem;
+            }
+
+            &:focus {
+              outline: 0.4rem solid #003b49;
+              transition: outline-width 0.35s ease-in-out;
+            }
+
+            svg {
+              transition: all 0.3s ease-in;
+              fill: $accentColor;
+            }
+
+            &:hover {
+              background-color: $blackColor;
+
+              svg {
+                fill: $whiteColor;
+              }
+            }
+
+            .visuallyhidden {
+              border: 0;
+              clip: rect(0 0 0 0);
+              height: 1px;
+              margin: -1px;
+              overflow: hidden;
+              padding: 0;
+              position: absolute;
+              white-space: nowrap;
+              width: 1px;
+            }
+          }
+        }
+      }
+    }
+
     &-members {
       margin-top: 2.5rem;
 
