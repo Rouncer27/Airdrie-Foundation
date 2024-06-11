@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroIntro from "../../components/DonateNow/HeroIntro.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+	query donateNowPageQuery {
+        page(id: "/donate/donate-now", idType: URI) {
+            donateNowPage {
+
+            # START Hero section #
+
+            heroIntroComponent {
+                content
+                title
+                image {
+                altText
+                sourceUrl
+                }
+            }
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+                     }
+                }			
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
+---
+
+<Layout>
+  <HeroIntro data={page.donateNowPage.heroIntroComponent} />
+</Layout>
