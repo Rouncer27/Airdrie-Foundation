@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import HeroIntro from "../../components/DonatePrograms/HeroIntro.astro";
 import IconPoints from "../../components/DonatePrograms/IconPoints.astro";
+import CallToAction from "../../components/DonatePrograms/CallToAction.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -27,8 +28,6 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
-            # START Hero section #
-
             iconPointsComponent {
               points {
                 icon {
@@ -41,6 +40,16 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             }
 
             # START Hero section #
+            callToActionComponent {
+                title
+                content
+                buttonText
+                buttonUrl
+                backgroundImage {
+                    altText
+                    sourceUrl
+                }
+            }
 
             # START Hero section #
 
@@ -67,4 +76,5 @@ const {
 <Layout>
   <HeroIntro data={page.donationProgramsPage.heroIntroComponent} />
   <IconPoints data={page.donationProgramsPage.iconPointsComponent} />
+  <CallToAction data={page.donationProgramsPage.callToActionComponent} />
 </Layout>
