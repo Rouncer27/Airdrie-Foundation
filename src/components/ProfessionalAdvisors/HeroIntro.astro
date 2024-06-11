@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
+import "./heroIntro.scss";
+---
+
+<div class="proadv-hero-intro">
+  <div class="proadv-hero-intro-image">
+    <div class="proadv-hero-intro-image-wrapper">
+      <Image
+        src={Astro.props.data.image.sourceUrl}
+        alt={Astro.props.data.image.altText}
+        inferSize={true}
+      />
+    </div>
+  </div>
+
+  <div class="proadv-hero-intro-content">
+    <Wrapper>
+      <h1 set:html={Astro.props.data.title} />
+      <div
+        class="proadv-hero-intro-content-para"
+        set:html={Astro.props.data.content}
+      />
+    </Wrapper>
+  </div>
+</div>

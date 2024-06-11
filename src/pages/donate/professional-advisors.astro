@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroIntro from "../../components/ProfessionalAdvisors/HeroIntro.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+	query professionalAdvisorsPageQuery {
+        page(id: "/donate/professional-advisors", idType: URI) {
+            professionalAdvisorsPage {
+
+            # START Hero section #
+
+            heroIntroComponent {
+                content
+                title
+                image {
+                altText
+                sourceUrl
+                }
+            }
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+                     }
+                }			
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
+---
+
+<Layout>
+  <HeroIntro data={page.professionalAdvisorsPage.heroIntroComponent} />
+</Layout>
