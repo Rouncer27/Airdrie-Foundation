@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroIntro from "../../components/DonatePrograms/HeroIntro.astro";
+import IconPoints from "../../components/DonatePrograms/IconPoints.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+	query donationProgramsPageQuery {
+        page(id: "/donate/donation-programs", idType: URI) {
+            donationProgramsPage {
+
+            # START Hero section #
+
+            heroIntroComponent {
+                content
+                title
+                image {
+                altText
+                sourceUrl
+                }
+            }
+
+            # START Hero section #
+
+            # START Hero section #
+
+            iconPointsComponent {
+              points {
+                icon {
+                  altText
+                  sourceUrl
+                }
+                title
+                content
+              }
+            }
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+            # START Hero section #
+
+                     }
+                }			
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
+---
+
+<Layout>
+  <HeroIntro data={page.donationProgramsPage.heroIntroComponent} />
+  <IconPoints data={page.donationProgramsPage.iconPointsComponent} />
+</Layout>

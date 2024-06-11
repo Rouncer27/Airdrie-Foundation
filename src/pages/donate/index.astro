@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import HeroIntro from "../components/Donate/HeroIntro.astro";
-import ContentButton from "../components/Donate/ContentButton.astro";
-import IconPoints from "../components/Donate/IconPoints.astro";
-import ContentBlocks from "../components/Donate/ContentBlocks.astro";
-import ColourQuote from "../components/Donate/ColourQuote.astro";
+import Layout from "../../layouts/Layout.astro";
+import HeroIntro from "../../components/Donate/HeroIntro.astro";
+import ContentButton from "../../components/Donate/ContentButton.astro";
+import IconPoints from "../../components/Donate/IconPoints.astro";
+import ContentBlocks from "../../components/Donate/ContentBlocks.astro";
+import ColourQuote from "../../components/Donate/ColourQuote.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",

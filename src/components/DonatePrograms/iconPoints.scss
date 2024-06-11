@@ -1,0 +1,45 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.donatepro-icons {
+  &-point {
+    width: calc(100% - 2rem);
+    margin: 2rem 1rem;
+
+    @media (min-width: 768px) {
+      width: calc((100% / 2) - 4rem);
+      margin: 2rem;
+    }
+
+    @media (min-width: 1025px) {
+      width: calc((100% / 3) - 6rem);
+      margin: 2rem 3rem;
+    }
+
+    &-icon {
+      width: 100%;
+
+      &-inner {
+        max-width: 15rem;
+        margin: 0 auto;
+      }
+    }
+
+    &-title {
+      width: 100%;
+      text-align: center;
+
+      h2 {
+        color: $primaryColor;
+      }
+    }
+
+    &-content {
+      width: 100%;
+
+      p {
+        @extend .p-two;
+      }
+    }
+  }
+}
