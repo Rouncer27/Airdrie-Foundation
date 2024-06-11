@@ -1,0 +1,32 @@
+@use "../../styles/abstracts/" as *;
+
+.grants-links-banner {
+  padding: 6rem 0;
+  background-color: rgba($shadowColor, 0.2);
+
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      margin: 0;
+      color: $primaryColor;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  &-links {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+
+    a:first-of-type {
+      margin-right: 1rem;
+    }
+
+    a:last-of-type {
+      margin-left: 1rem;
+    }
+  }
+}

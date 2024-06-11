@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/Grants/HeroIntro.astro";
+import SimpleContent from "../components/Grants/SimpleContent.astro";
+import LinksBanner from "../components/Grants/LinksBanner.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -26,7 +28,25 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+            simpleContentComponent {
+              title
+              subTitle
+              content
+            }
+
             # START Hero section #
+
+            linksBannerComponent {
+              title
+              buttonOneText
+              buttonTwoText
+              buttonOneFile {
+                mediaItemUrl
+              }
+              buttonTwoFile {
+                mediaItemUrl
+              }
+            }
 
             # START Hero section #
 
@@ -52,4 +72,6 @@ const {
 
 <Layout title="Welcome to Astro.">
   <HeroIntro data={page.grantsPage.heroIntroComponent} />
+  <SimpleContent data={page.grantsPage.simpleContentComponent} />
+  <LinksBanner data={page.grantsPage.linksBannerComponent} />
 </Layout>
