@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/Grants/HeroIntro.astro";
 import SimpleContent from "../components/Grants/SimpleContent.astro";
 import LinksBanner from "../components/Grants/LinksBanner.astro";
+import ListGrants from "../components/Grants/ListGrants.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -50,6 +51,13 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+            listGrantsComponent {
+              grants {
+                year
+                content
+              }
+            }
+
             # START Hero section #
 
             # START Hero section #
@@ -74,4 +82,5 @@ const {
   <HeroIntro data={page.grantsPage.heroIntroComponent} />
   <SimpleContent data={page.grantsPage.simpleContentComponent} />
   <LinksBanner data={page.grantsPage.linksBannerComponent} />
+  <ListGrants data={page.grantsPage.listGrantsComponent} />
 </Layout>

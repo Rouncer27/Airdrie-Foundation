@@ -1,0 +1,30 @@
+---
+import Headline from "../shared/Headline.astro";
+import Wrapper from "../shared/Wrapper.astro";
+import "./listGrants.scss";
+---
+
+<div class="grants-list">
+  <Wrapper>
+    {
+      Astro.props.data.grants.map((grant, index) => {
+        return (
+          <div class="grants-list-item">
+            <div class="grants-list-item-year">
+              <div class="grants-list-item-year-title">
+                <Headline ele="p" hlstyle="one">
+                  <span>{grant.year}</span>
+                  <span>&#43;</span>
+                </Headline>
+              </div>
+              <div class="grants-list-item-year-content">
+                <h3>{grant.year}</h3>
+                <div set:html={grant.content} />
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </Wrapper>
+</div>
