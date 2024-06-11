@@ -4,6 +4,8 @@ import HeroIntro from "../components/Grants/HeroIntro.astro";
 import SimpleContent from "../components/Grants/SimpleContent.astro";
 import LinksBanner from "../components/Grants/LinksBanner.astro";
 import ListGrants from "../components/Grants/ListGrants.astro";
+import CallToAction from "../components/Grants/CallToAction.astro";
+import Newsletter from "../components/Home/Newsletter";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -60,7 +62,26 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+            callToActionComponent {
+              title
+              content
+              buttonText
+              buttonFile {
+                mediaItemUrl
+              }
+              backgroundImage {
+                altText
+                sourceUrl
+              }
+            }
+
             # START Hero section #
+
+            newsletterComponent {
+              title
+              subTitles
+              content
+            }
 
             # START Hero section #
 
@@ -83,4 +104,6 @@ const {
   <SimpleContent data={page.grantsPage.simpleContentComponent} />
   <LinksBanner data={page.grantsPage.linksBannerComponent} />
   <ListGrants data={page.grantsPage.listGrantsComponent} />
+  <CallToAction data={page.grantsPage.callToActionComponent} />
+  <Newsletter data={page.grantsPage.newsletterComponent} />
 </Layout>
