@@ -1,7 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import "./bottomPageImage.scss";
 ---
 
-<div>
-  <h1>bottom Page Image</h1>
+<div class="special-bottom-image">
+  <div class="special-bottom-image-wrapper">
+    <Image
+      src={Astro.props.data.image.sourceUrl}
+      alt={Astro.props.data.image.altText}
+      inferSize={true}
+    />
+  </div>
 </div>
