@@ -1,0 +1,86 @@
+---
+import Headline from "../shared/Headline.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Wrapper from "../shared/Wrapper.astro";
+import "./lists.scss";
+---
+
+<div class="special-lists">
+  <Wrapper>
+    <div class="special-lists-component special-lists-component-left">
+      <div class="special-lists-component-title">
+        <Headline ele="h2" hlstyle="one">In Memory</Headline>
+      </div>
+
+      <div class="special-lists-component-content">
+        <div class="special-lists-component-content-titles">
+          <div class="special-lists-component-content-titles-colone">
+            <Paragraph pstyle="two">In Memory</Paragraph>
+          </div>
+          <div class="special-lists-component-content-titles-coltwo">
+            <Paragraph pstyle="two">Donor</Paragraph>
+          </div>
+          <div class="special-lists-component-content-titles-colthree">
+            <Paragraph pstyle="two">Year</Paragraph>
+          </div>
+        </div>
+
+        {
+          Astro.props.data.inMemory.map((mem) => {
+            return (
+              <div class="special-lists-component-content-item">
+                <div class="special-lists-component-content-item-colone">
+                  <Paragraph pstyle="three">{mem.inMemory}</Paragraph>
+                </div>
+                <div class="special-lists-component-content-item-coltwo">
+                  <Paragraph pstyle="three">{mem.donor}</Paragraph>
+                </div>
+                <div class="special-lists-component-content-item-colthree">
+                  <Paragraph pstyle="three">{mem.year}</Paragraph>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <div class="special-lists-component special-lists-component-right">
+      <div class="special-lists-component-title">
+        <Headline ele="h2" hlstyle="one">In Memory</Headline>
+      </div>
+
+      <div class="special-lists-component-content">
+        <div class="special-lists-component-content-titles">
+          <div class="special-lists-component-content-titles-colone">
+            <Paragraph pstyle="two">In Memory</Paragraph>
+          </div>
+          <div class="special-lists-component-content-titles-coltwo">
+            <Paragraph pstyle="two">Donor</Paragraph>
+          </div>
+          <div class="special-lists-component-content-titles-colthree">
+            <Paragraph pstyle="two">Year</Paragraph>
+          </div>
+        </div>
+
+        {
+          Astro.props.data.inCelebration.map((cel) => {
+            return (
+              <div class="special-lists-component-content-item">
+                <div class="special-lists-component-content-item-colone">
+                  <Paragraph pstyle="three">{cel.inCelebration}</Paragraph>
+                </div>
+                <div class="special-lists-component-content-item-coltwo">
+                  <Paragraph pstyle="three">{cel.donor}</Paragraph>
+                </div>
+                <div class="special-lists-component-content-item-colthree">
+                  <Paragraph pstyle="three">{cel.year}</Paragraph>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </Wrapper>
+</div>

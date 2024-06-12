@@ -1,0 +1,81 @@
+@use "../../styles/abstracts/" as *;
+
+.special-lists {
+  &-component {
+    width: calc(50% - 5rem);
+    margin: 2rem auto;
+
+    &.special-lists-component-left {
+      margin-right: 5rem;
+    }
+
+    &.special-lists-component-right {
+      margin-left: 5rem;
+    }
+
+    &-title {
+      width: 100%;
+      text-align: center;
+
+      h2 {
+        color: $primaryColor;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+
+    &-content {
+      width: 100%;
+
+      &-titles {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 2.5rem;
+
+        &-colone {
+          width: 45%;
+        }
+
+        &-coltwo {
+          width: 45%;
+        }
+
+        &-colthree {
+          width: 10%;
+        }
+
+        p {
+          font-weight: 700;
+        }
+      }
+
+      &-item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.1rem solid $primaryColor;
+
+        &-colone {
+          width: 45%;
+        }
+
+        &-coltwo {
+          width: 45%;
+        }
+
+        &-colthree {
+          width: 10%;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

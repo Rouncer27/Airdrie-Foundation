@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroIntro from "../../components/SpecialMemorial/HeroIntro.astro";
+import Lists from "../../components/SpecialMemorial/Lists.astro";
+import BottomPageImage from "../../components/SpecialMemorial/BottomPageImage.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -25,21 +27,33 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             }
 
             # START Hero section #
-
-   
+            listsComponent {
+                inMemory {
+                    inMemory
+                    donor
+                    year
+                }
+                inCelebration {
+                    inCelebration
+                    donor
+                    year
+                }
+            }
 
             # START Hero section #
 
+            bottomPageImageComponent {
+                image {
+                    altText
+                    sourceUrl
+                }
+            }
 
             # START Hero section #
 
-
-
             # START Hero section #
 
-
             # START Hero section #
-
 
             # START Hero section #
 
@@ -59,4 +73,6 @@ const {
 
 <Layout>
   <HeroIntro data={page.specialMemorialPage.heroIntroComponent} />
+  <Lists data={page.specialMemorialPage.listsComponent} />
+  <BottomPageImage data={page.specialMemorialPage.bottomPageImageComponent} />
 </Layout>
