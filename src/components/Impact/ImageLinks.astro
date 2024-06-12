@@ -1,7 +1,44 @@
 ---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
 import "./imageLinks.scss";
+import Headline from "../shared/Headline.astro";
 ---
 
-<div>
-  <h1>Image Links</h1>
+<div class="impact-linkimg">
+  <Wrapper>
+    <div class="impact-linkimg-one">
+      <a href={`/${Astro.props.data.imageOneSlug}`}>
+        <div class="impact-linkimg-one-img">
+          <Image
+            src={Astro.props.data.imageOne.sourceUrl}
+            alt={Astro.props.data.imageOne.altText}
+            inferSize={true}
+          />
+        </div>
+        <div class="impact-linkimg-one-title">
+          <Headline ele="h2" hlstyle="one"
+            >{Astro.props.data.imageOneText}</Headline
+          >
+        </div>
+      </a>
+    </div>
+
+    <div class="impact-linkimg-two">
+      <a href={`/${Astro.props.data.imageTwoSlug}`}>
+        <div class="impact-linkimg-two-img">
+          <Image
+            src={Astro.props.data.imageTwo.sourceUrl}
+            alt={Astro.props.data.imageTwo.altText}
+            inferSize={true}
+          />
+        </div>
+        <div class="impact-linkimg-two-title">
+          <Headline ele="h2" hlstyle="one"
+            >{Astro.props.data.imageTwoText}</Headline
+          >
+        </div>
+      </a>
+    </div>
+  </Wrapper>
 </div>

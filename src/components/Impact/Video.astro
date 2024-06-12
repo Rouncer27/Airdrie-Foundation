@@ -1,7 +1,12 @@
 ---
+import Wrapper from "../shared/Wrapper.astro";
 import "./video.scss";
 ---
 
-<div>
-  <h1>Video</h1>
+<div class="impact-video">
+  <Wrapper>
+    <div class="impact-video-container">
+      <div set:html={Astro.props.data.videoEmbed} />
+    </div>
+  </Wrapper>
 </div>
