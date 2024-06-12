@@ -8,6 +8,7 @@
 
     @media (min-width: 768px) {
       width: calc(50% - 0.5rem);
+      min-height: 45rem;
       margin-right: 0.5rem;
     }
 
@@ -35,7 +36,7 @@
       left: 0;
       width: 100%;
       transform: translateY(-50%);
-      background-color: rgba($primaryColor, 0.8);
+      background-color: rgba($shadowColor, 0.8);
       z-index: 10;
 
       h2 {
@@ -50,9 +51,11 @@
   &-two {
     position: relative;
     width: 100%;
+    min-height: 40rem;
 
     @media (min-width: 768px) {
       width: calc(50% - 0.5rem);
+      min-height: 45rem;
       margin-left: 0.5rem;
     }
 
