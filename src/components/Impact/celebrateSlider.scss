@@ -1,0 +1,39 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/headlines";
+@use "../../styles/global/paragraphs";
+@use "../../styles/global/wrappers";
+
+.impact-celslide {
+  &-wrapper {
+    @extend .wrap-med;
+  }
+
+  &-intro {
+    width: 100%;
+
+    h2 {
+      @extend .hl-one;
+      color: $primaryColor;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      @extend .hl-three;
+      color: $primaryColor;
+    }
+
+    p {
+      @extend .p-two;
+    }
+  }
+
+  &-slider {
+    width: 100%;
+
+    &-slide {
+      padding: 1rem;
+    }
+  }
+}
