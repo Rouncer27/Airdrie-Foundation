@@ -1,0 +1,79 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+@use "../../styles/global/headlines";
+
+.donatenow-hero-intro {
+  position: relative;
+  width: 100%;
+  min-height: 60rem;
+
+  @media (min-width: 768px) {
+    min-height: 85rem;
+  }
+
+  @media (min-width: 1025px) {
+    min-height: 80rem;
+  }
+
+  &-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    position: absolute;
+    bottom: 2rem;
+    left: 0%;
+    width: 100%;
+    max-width: 88rem;
+    margin: auto;
+    padding: 2rem 0;
+    background: rgba(#0b5f63, 0.85);
+    text-align: left;
+    z-index: 10;
+
+    @media (min-width: 768px) {
+      padding: 4ch 0;
+      bottom: 5rem;
+    }
+
+    @media (min-width: 1025px) {
+      padding: 4.5rem 4.5rem;
+      bottom: 10rem;
+    }
+
+    h1 {
+      @extend .hl-two;
+      color: $whiteColor;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+    }
+
+    p {
+      @extend .hl-two;
+      color: $whiteColor;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+
+    &-para {
+      width: 100%;
+    }
+  }
+}

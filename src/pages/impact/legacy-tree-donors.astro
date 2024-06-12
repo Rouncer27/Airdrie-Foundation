@@ -1,7 +1,62 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import HeroIntro from "../../components/LegacyTreeDonors/HeroIntro.astro";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+	query legacyTreeDonorsPageQuery {
+        page(id: "/impact/legacy-tree-donors", idType: URI) {
+          legacyTreeDonorsPage {
+
+            # START Hero section #
+
+            heroIntroComponent {
+                content
+                title
+                image {
+                altText
+                sourceUrl
+                }
+            }
+
+            # START Hero section #
+
+   
+
+            # START Hero section #
+
+
+            # START Hero section #
+
+
+
+            # START Hero section #
+
+
+            # START Hero section #
+
+
+            # START Hero section #
+
+            # START Hero section #
+
+                     }
+                }			
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
 ---
 
 <Layout>
-  <h1>Legacy Tree Donors</h1>
+  <HeroIntro data={page.legacyTreeDonorsPage.heroIntroComponent} />
 </Layout>
