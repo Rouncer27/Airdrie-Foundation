@@ -5,6 +5,7 @@ import SimpleContent from "../components/About/SimpleContent.astro";
 import WhatWeDo from "../components/About/WhatWeDo.astro";
 import BoardOfDirectors from "../components/About/BoardOfDirectors.astro";
 import AnnualReports from "../components/About/AnnualReports.astro";
+import Newsletter from "../components/Home/Newsletter";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -78,6 +79,13 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+
+            newsletterComponent {
+              title
+              subTitles
+              content
+            }
+
             # START Hero section #
 
             # START Hero section #
@@ -100,4 +108,5 @@ const {
   <WhatWeDo data={page.aboutPage.whatWeDoComponent} />
   <BoardOfDirectors data={page.aboutPage.boardOfDirectorsComponent} />
   <AnnualReports data={page.aboutPage.annualReportsComponent} />
+  <Newsletter client:only="react" data={page.aboutPage.newsletterComponent} />
 </Layout>
