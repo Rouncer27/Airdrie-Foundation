@@ -2,7 +2,6 @@
 import MainNav from "../components/Navigation/MainNav/MainNav.jsx";
 import MainLogo from "../components/Logo/MainLogo.astro";
 import MobileNav from "../components/Navigation/MobileNav/MobileNav";
-import Wrapper from "../components/shared/Wrapper.astro";
 import "./header.scss";
 
 const response = await fetch(`${import.meta.env.PUBLIC_WP_URL}/graphql`, {
@@ -14,7 +13,7 @@ const response = await fetch(`${import.meta.env.PUBLIC_WP_URL}/graphql`, {
     query: `
         query headerQuery {
             menu(id: "Main Menu", idType: NAME) {
-                menuItems {
+              menuItems(first: 99999) {
                     nodes {
                         label
                         uri
@@ -30,7 +29,7 @@ const response = await fetch(`${import.meta.env.PUBLIC_WP_URL}/graphql`, {
             }
 
             mobile: menu(id: "Main Mobile", idType: NAME) {
-                menuItems {
+              menuItems(first: 99999) {
                     nodes {
                         label
                         uri

@@ -1,7 +1,84 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroIntro from "../components/Contact/HeroIntro.astro";
+import CallToAction from "../components/Contact/CallToAction.astro";
+import Newsletter from "../components/Home/Newsletter";
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+	query contactPageQuery {
+        page(id: "/contact", idType: URI) {
+          contactPage {
+
+            # START Hero section #
+
+            heroIntroComponent {
+                content
+                title
+                image {
+                altText
+                sourceUrl
+                }
+            }
+
+            # START Hero section #
+
+         
+            # START Hero section #
+
+       
+            # START Hero section #
+
+        
+
+            # START Hero section #
+
+            callToActionComponent {
+              title
+              content
+              buttonText
+              buttonFile {
+                mediaItemUrl
+              }
+              backgroundImage {
+                altText
+                sourceUrl
+              }
+            }
+
+          
+            # START Hero section #
+
+
+            newsletterComponent {
+              title
+              subTitles
+              content
+            }
+
+            # START Hero section #
+
+            # START Hero section #
+
+                     }
+                }			
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page },
+} = await response.json();
 ---
 
 <Layout title="Welcome to Astro.">
-  <h1>Contact</h1>
+  <HeroIntro data={page.contactPage.heroIntroComponent} />
+  <CallToAction data={page.contactPage.callToActionComponent} />
+  <Newsletter client:only="react" data={page.contactPage.newsletterComponent} />
 </Layout>
