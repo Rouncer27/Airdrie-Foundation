@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
+import "./whatWeDo.scss";
+import Headline from "../shared/Headline.astro";
+---
+
+<div class="what-we">
+  <Wrapper>
+    <div class="what-we-title">
+      <Headline ele="h2" hlstyle="one">{Astro.props.data.title}</Headline>
+    </div>
+    <div class="what-we-image">
+      <div class="what-we-image-inner">
+        <Image
+          src={Astro.props.data.featuredImage.sourceUrl}
+          alt={Astro.props.data.featuredImage.altText}
+          inferSize={true}
+        />
+      </div>
+    </div>
+    <div class="what-we-content" set:html={Astro.props.data.content} />
+  </Wrapper>
+</div>

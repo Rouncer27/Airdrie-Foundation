@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/About/HeroIntro.astro";
 import SimpleContent from "../components/About/SimpleContent.astro";
+import WhatWeDo from "../components/About/WhatWeDo.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -35,6 +36,15 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
 
             # START Hero section #
 
+            whatWeDoComponent {
+              title
+              content
+              featuredImage {
+                altText
+                sourceUrl
+              }
+            }
+
             # START Hero section #
 
             # START Hero section #
@@ -60,4 +70,5 @@ const {
 <Layout title="Welcome to Astro.">
   <HeroIntro data={page.aboutPage.heroIntroComponent} />
   <SimpleContent data={page.aboutPage.simpleContentComponent} />
+  <WhatWeDo data={page.aboutPage.whatWeDoComponent} />
 </Layout>

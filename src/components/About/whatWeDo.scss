@@ -1,0 +1,31 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.what-we {
+  &-title {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      font-weight: 700;
+      color: $primaryColor;
+    }
+  }
+
+  &-image {
+    width: 100%;
+
+    &-inner {
+      max-width: 53.7rem;
+      margin: 2rem auto 5rem;
+    }
+  }
+
+  &-content {
+    width: 100%;
+
+    p {
+      @extend .p-two;
+    }
+  }
+}
