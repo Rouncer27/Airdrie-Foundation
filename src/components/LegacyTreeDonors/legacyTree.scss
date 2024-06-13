@@ -1,0 +1,114 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/headlines";
+@use "../../styles/global/paragraphs";
+@use "../../styles/global/wrappers";
+
+.legacy-tree-donors {
+  padding-bottom: 15rem;
+
+  &-wrapper {
+    @extend .wrap-med;
+  }
+
+  &-asterisk {
+    p {
+      @extend .p-three;
+    }
+  }
+
+  &-content {
+    position: relative;
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+
+    &-member {
+      position: relative;
+      width: 32.5rem;
+      padding: 2rem;
+      background-color: $primaryColor;
+      transition: all 0.3s ease-in-out;
+      z-index: 100;
+
+      &-title {
+        text-align: center;
+
+        p {
+          @extend .p-two;
+          margin: 0;
+          color: $whiteColor;
+        }
+
+        p:first-of-type {
+          @extend .hl-two;
+          color: $whiteColor;
+        }
+
+        button {
+          position: absolute;
+          top: -1.5rem;
+          right: -1.5rem;
+          display: inline-block;
+          width: 4rem;
+          height: 4rem;
+          background-color: $whiteColor;
+          border: 0.2rem solid $primaryColor;
+          border-radius: 50%;
+          line-height: 1.5;
+          color: $primaryColor;
+        }
+      }
+
+      &-list {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0px;
+        border-top: 0.1rem solid $whiteColor;
+        margin-top: 3.25rem;
+        margin-bottom: 3.25rem;
+        padding-top: 3.25rem;
+
+        ul {
+          width: 100%;
+
+          li {
+            @extend .p-three;
+            margin-bottom: 0.5rem;
+            color: $whiteColor;
+          }
+        }
+      }
+
+      &.active {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // text-align: left;
+      }
+    }
+
+    &-leaf {
+      position: absolute;
+      top: 10rem;
+      left: 7.5rem;
+    }
+
+    &-branch {
+      position: absolute;
+      top: 27.5%;
+      left: 47%;
+    }
+
+    &-root {
+      position: absolute;
+      top: 90%;
+      left: 10%;
+    }
+
+    &-trunk {
+      position: absolute;
+      top: 70%;
+      left: 25%;
+    }
+  }
+}
