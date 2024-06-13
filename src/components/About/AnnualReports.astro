@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
+import "./annualReports.scss";
+---
+
+<div class="about-reports">
+  <Wrapper wrapType="stand">
+    <div class="about-reports-title">
+      <h2>Annual Reports</h2>
+    </div>
+    <div class="about-reports-list">
+      {
+        Astro.props.data.reports.map((report) => {
+          return (
+            <div class="about-reports-list-item">
+              <div>
+                <Image
+                  src={report.reportImage.sourceUrl}
+                  alt={report.reportImage.altText}
+                  inferSize={true}
+                />
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Wrapper>
+</div>
