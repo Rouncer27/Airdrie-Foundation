@@ -1,0 +1,25 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.grants-simple {
+  &-titles {
+    width: 100%;
+    h2,
+    h3 {
+      color: $primaryColor;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+
+  &-content {
+    width: 100%;
+
+    p {
+      @extend .p-two;
+    }
+  }
+}

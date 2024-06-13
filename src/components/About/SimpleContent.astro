@@ -1,0 +1,15 @@
+---
+import Headline from "../shared/Headline.astro";
+import Wrapper from "../shared/Wrapper.astro";
+import "./simpleContent.scss";
+---
+
+<div class="grants-simple">
+  <Wrapper wrapType="stand">
+    <div class="grants-simple-titles">
+      <Headline ele="h2" hlstyle="one">{Astro.props.data.title}</Headline>
+      <Headline ele="h3" hlstyle="three">{Astro.props.data.subTitle}</Headline>
+    </div>
+    <div class="grants-simple-content" set:html={Astro.props.data.content} />
+  </Wrapper>
+</div>
