@@ -1,0 +1,74 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.single-post-nav {
+  background-color: $whiteColor;
+
+  &-wrapper {
+    border-top: solid 0.3rem $blackColor;
+  }
+
+  a {
+    @extend .p-three;
+    color: $primaryColor;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $shadowColor;
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  &-prev {
+    width: calc(33.333333%);
+    padding-left: 10rem;
+
+    &-alone {
+      width: calc(50%);
+    }
+
+    a {
+      span {
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  &-home {
+    width: calc(33.333333%);
+    text-align: center;
+
+    &-alone {
+      width: calc(50%);
+
+      &-next {
+        padding-right: 10rem;
+        text-align: right;
+      }
+
+      &-prev {
+        padding-left: 10rem;
+        text-align: left;
+      }
+    }
+  }
+
+  &-next {
+    width: calc(33.333333%);
+    padding-right: 10rem;
+    text-align: right;
+
+    &-alone {
+      width: calc(50%);
+    }
+
+    a {
+      span {
+        padding-left: 1rem;
+      }
+    }
+  }
+}

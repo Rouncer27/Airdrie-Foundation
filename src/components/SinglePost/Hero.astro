@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
+import "./hero.scss";
+---
+
+<div class="post-hero">
+  <Wrapper>
+    <div class="post-hero-image">
+      <div class="post-hero-image-wrap">
+        <Image
+          src={Astro.props.featuredImage.sourceUrl}
+          alt={Astro.props.featuredImage.altText}
+          width="2000"
+          height="1500"
+        />
+      </div>
+    </div>
+  </Wrapper>
+</div>

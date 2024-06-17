@@ -1,0 +1,88 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import CatNav from "../../../components/News/CatNav.astro";
+import Posts from "../../../components/Category/Posts.jsx";
+import IntroTitle from "../../../components/Category/IntroTitle.astro";
+import NoPostFound from "../../../components/Category/NoPostsFound.astro";
+
+export async function getStaticPaths() {
+  const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query categoriesQuery {
+            categories(first: 9999999) {
+                nodes {
+                    uri
+                    slug
+                    name
+                }
+            }
+        }
+      `,
+    }),
+  });
+
+  const { data } = await response.json();
+  return data.categories.nodes.map((cat) => {
+    return {
+      params: { slug: `${cat.slug}` },
+      props: { catName: `${cat.name}` },
+    };
+  });
+}
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+      query PostQuery($slug: String!) {
+        posts(first: 99999, where: {categoryName: $slug}) {
+          nodes {
+            title
+            uri
+            postType {
+              excerpt
+              featuredImage {
+                altText
+                sourceUrl
+              }
+            }
+          }
+        }
+        
+        categories {
+          nodes {
+            name
+            slug
+            uri
+            }
+          }
+      }
+    `,
+    variables: {
+      slug: Astro.params["slug"],
+    },
+  }),
+});
+
+const { data } = await response.json();
+---
+
+<Layout>
+  <IntroTitle catName={Astro.props["catName"]} />
+  <CatNav categories={data.categories} current={Astro.params["slug"]} />
+  {
+    data.posts.nodes.length > 0 ? (
+      <Posts client:only="react" posts={data.posts.nodes} />
+    ) : (
+      <NoPostFound catName={Astro.props["catName"]} />
+    )
+  }
+</Layout>

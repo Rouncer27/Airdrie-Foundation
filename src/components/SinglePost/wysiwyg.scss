@@ -1,0 +1,11 @@
+@use "../../styles/abstracts/" as *;
+
+.main-content {
+  &-title {
+    width: 100%;
+
+    h1 {
+      color: $secondaryColor;
+    }
+  }
+}

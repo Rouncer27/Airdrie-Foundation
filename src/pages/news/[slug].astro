@@ -1,0 +1,116 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/SinglePost/Hero.astro";
+import WysiwygSingle from "../../components/SinglePost/WysiwygSingle.astro";
+import Navigation from "../../components/SinglePost/Navigation.astro";
+
+export async function getStaticPaths() {
+  const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query postQuery {
+            posts(first: 999999) {
+                nodes {
+                    slug
+                    uri
+                }
+            }
+        }
+      `,
+    }),
+  });
+
+  const { data } = await response.json();
+
+  const allPosts = data.posts.nodes;
+
+  return allPosts.map((post, index) => {
+    return {
+      params: { slug: `${post.slug}` },
+      props: {
+        next:
+          index === 0
+            ? null
+            : {
+                slug: allPosts[index - 1].slug,
+                title: allPosts[index - 1].title,
+              },
+        prev:
+          index === allPosts.length - 1
+            ? null
+            : {
+                slug: allPosts[index + 1].slug,
+                title: allPosts[index + 1].title,
+              },
+      },
+    };
+  });
+}
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+    query postQuery($id: ID!) {
+      post(idType: SLUG, id: $id) {
+          title
+          singlePostPage {
+            mainContentComponent {
+              content
+            }
+            featuredImageComponent {
+              image {
+                altText
+                sourceUrl
+              }
+            }
+            imageGalleryComponent {
+              imagesRequired
+              imageOne {
+                altText
+                sourceUrl
+              }
+              imageTwo {
+                altText
+                sourceUrl
+              }
+              imageThree {
+                altText
+                sourceUrl
+              }
+            }
+          }
+          categories {
+              nodes {
+            name
+          }
+        }
+      }
+    }
+    `,
+    variables: {
+      id: Astro.params["slug"],
+    },
+  }),
+});
+
+const {
+  data: { post },
+} = await response.json();
+---
+
+<Layout>
+  <Hero featuredImage={post.singlePostPage.featuredImageComponent.image} />
+  <WysiwygSingle
+    wysiwyg={post.singlePostPage.mainContentComponent.content}
+    title={post.title}
+  />
+  <Navigation data={Astro.props} />
+</Layout>
