@@ -47,12 +47,12 @@ const BoardOfDirectors = ({ data }) => {
                 height="500"
               />
             </div>
+            <div className="bod-bios-modal-image-titles">
+              <h3>{data.directors[activeBio]?.name}</h3>
+              <p>{data.directors[activeBio].title}</p>
+            </div>
           </div>
           <div className="bod-bios-modal-bio">
-            <div className="bod-bios-modal-bio-titles">
-              <h3>{data.directors[activeBio]?.title}</h3>
-              <p>{data.directors[activeBio].titlePosition}</p>
-            </div>
             <div
               className="bod-bios-modal-bio-content"
               dangerouslySetInnerHTML={{
