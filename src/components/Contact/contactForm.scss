@@ -1,0 +1,32 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs";
+
+.contact-form {
+  padding: 4rem 0;
+
+  &-intro {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(30%);
+    }
+
+    h2 {
+      color: $primaryColor;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    p {
+      @extend .p-two;
+    }
+  }
+
+  &-fields {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(70%);
+    }
+  }
+}
