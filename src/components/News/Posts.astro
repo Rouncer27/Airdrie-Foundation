@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import Wrapper from "../shared/Wrapper.astro";
+import "./posts.scss";
+const {
+  posts: {
+    page: { data: posts },
+  },
+} = Astro.props;
+---
+
+<div class="post-list">
+  <Wrapper classes="post-list-wrapper">
+    {
+      posts.map((post) => {
+        console.log(post);
+        return (
+          <div class="post-list-item">
+            <a href={post.uri}>
+              <div class="post-list-item-image">
+                <div class="post-list-item-image-wrap">
+                  <Image
+                    src={
+                      post.singlePostPage.featuredImageComponent.image.sourceUrl
+                    }
+                    alt={post.title}
+                    width="1000"
+                    height="750"
+                  />
+                </div>
+              </div>
+              <div class="post-list-item-intro">
+                <div class="post-list-item-intro-title">
+                  <h2>{post.title}</h2>
+                </div>
+                <div
+                  class="post-list-item-intro-excerpt"
+                  set:html={post.singlePostPage.excerptComponent.excerpt}
+                />
+              </div>
+            </a>
+          </div>
+        );
+      })
+    }
+  </Wrapper>
+</div>

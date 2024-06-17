@@ -1,0 +1,100 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MainTitle from "../../components/News/MainTitle.astro";
+import CatNav from "../../components/News/CatNav.astro";
+import Posts from "../../components/News/Posts.astro";
+import Pagination from "../../components/News/Pagination.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        query postsQuery {
+          posts(first: 999999) {
+            nodes {
+              title
+              slug
+              uri
+              singlePostPage {
+                featuredImageComponent {
+                  image {
+                    altText
+                    sourceUrl
+                  }
+                }
+                excerptComponent {
+                  excerpt
+                }
+              }
+
+              categories {
+                nodes {
+                  name
+                }
+              }
+            }
+          }
+        }
+      `,
+    }),
+  });
+
+  const { data } = await response.json();
+  const allposts = data.posts.nodes;
+  return paginate(allposts, { pageSize: 6 });
+}
+
+const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+			query newsPageQuery {
+				page(id: "/news", idType: URI) {
+					newsPage {
+						# START Hero section #
+            pageTitleComponent {
+              title
+            }
+    
+						# START Hero section #
+            postsDisplayComponent {
+              displayPosts
+            }
+						# START Hero section #			
+						# START Hero section #
+					}
+				}
+
+        categories {
+          nodes {
+            name
+            slug
+            uri
+          }
+        }
+			}
+		`,
+  }),
+});
+
+const {
+  data: { page, categories },
+} = await response.json();
+
+console.log("data", page);
+console.log("data", Astro.props);
+---
+
+<Layout title="Welcome to Astro.">
+  <MainTitle data={page.newsPage.pageTitleComponent} />
+  <CatNav categories={categories} current={Astro.params["slug"]} />
+  <Posts posts={Astro.props} />
+  <Pagination page={Astro.props} />
+</Layout>

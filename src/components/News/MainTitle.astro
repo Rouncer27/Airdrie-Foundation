@@ -1,0 +1,13 @@
+---
+import Headline from "../shared/Headline.astro";
+import Wrapper from "../shared/Wrapper.astro";
+import "./mainTitle.scss";
+---
+
+<div class="news-page-title">
+  <Wrapper>
+    <div class="news-page-title-container">
+      <Headline ele="h1" hlstyle="one">{Astro.props.data.title}</Headline>
+    </div>
+  </Wrapper>
+</div>

@@ -1,0 +1,36 @@
+---
+import Wrapper from "../shared/Wrapper.astro";
+import "./catNav.scss";
+const { categories } = Astro.props;
+---
+
+<div class="cat-nav">
+  <Wrapper>
+    <ul>
+      {
+        Astro.props.current === undefined ? (
+          <li class="current-cat">All</li>
+        ) : (
+          <li>
+            <a href="/news">All</a>
+          </li>
+        )
+      }
+
+      {
+        categories.nodes.map((cat) => {
+          const current = Astro.props.current === cat.slug;
+          if (current) {
+            return <li class="current-cat">{cat.name}</li>;
+          } else {
+            return (
+              <li>
+                <a href={cat.uri}>{cat.name}</a>
+              </li>
+            );
+          }
+        })
+      }
+    </ul>
+  </Wrapper>
+</div>

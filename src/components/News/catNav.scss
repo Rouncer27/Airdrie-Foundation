@@ -1,0 +1,48 @@
+@use "../../styles/abstracts/" as *;
+@use "../../styles/global/paragraphs.scss";
+
+.cat-nav {
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      position: relative;
+      margin-right: 1rem;
+      padding-right: 1rem;
+      text-transform: uppercase;
+
+      &::after {
+        @extend .p-two;
+        position: absolute;
+        top: 0;
+        right: -0.25rem;
+        content: "|";
+      }
+
+      &:last-of-type {
+        &::after {
+          display: none;
+        }
+      }
+
+      a {
+        @extend .p-two;
+
+        &:hover {
+          color: $primaryColor;
+        }
+      }
+
+      &.current-cat {
+        @extend .p-two;
+        color: $primaryColor;
+        font-weight: 700;
+        cursor: inherit;
+      }
+    }
+  }
+}
