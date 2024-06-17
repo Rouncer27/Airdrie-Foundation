@@ -1,0 +1,21 @@
+---
+import Wrapper from "../shared/Wrapper.astro";
+import "./mailingContactInfo.scss";
+---
+
+<div class="mail-cont">
+  <Wrapper>
+    <div class="mail-cont-mailing">
+      <h2>Mailing Information</h2>
+      <h3>Mail cheques to:</h3>
+      <div set:html={Astro.props.data.mailingInformation} />
+      <div set:html={Astro.props.data.eTransfersInformation} />
+    </div>
+    <div class="mail-cont-contact">
+      <h2>Contact Us</h2>
+      <div set:html={Astro.props.data.contactUs} />
+      <h3>Tax Receipts:</h3>
+      <div set:html={Astro.props.data.taxReceipts} />
+    </div>
+  </Wrapper>
+</div>
