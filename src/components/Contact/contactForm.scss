@@ -2,6 +2,7 @@
 @use "../../styles/global/paragraphs";
 @use "../../styles/global/headlines";
 @use "../../styles/global/wrappers";
+@use "../../styles/global/buttons";
 
 .contact-form {
   padding: 4rem 0;
@@ -34,6 +35,21 @@
 
     @media (min-width: 768px) {
       width: calc(70%);
+    }
+
+    &-input-wrapper {
+      @extend .wrap-stand;
+      position: relative;
+      width: calc(100%);
+      z-index: 10;
+    }
+
+    .button-wrapper {
+      margin-top: 2.5rem;
+
+      button {
+        @extend .btn-one;
+      }
     }
   }
 }

@@ -14,7 +14,6 @@
     @extend .p-three;
     display: block;
     width: 100%;
-    color: $whiteColor;
   }
 
   input {
@@ -22,8 +21,6 @@
     display: block;
     width: 100%;
     padding: 1rem;
-    border: 0.1rem solid $whiteColor;
-    background-color: $blackColor;
-    color: $whiteColor;
+    border: 0.1rem solid $primaryColor;
   }
 }

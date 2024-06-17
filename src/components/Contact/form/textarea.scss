@@ -9,7 +9,6 @@
 
   label {
     @extend .p-two;
-    color: $whiteColor;
     display: block;
     width: 100%;
     line-height: 1.5;
@@ -25,18 +24,16 @@
     }
 
     textarea {
+      @extend .p-two;
       display: block;
       margin-top: 0.25rem;
       margin-bottom: 0.5rem;
       padding: 0.9rem 1rem;
-      background-color: $blackColor;
+      border: 0.1rem solid $primaryColor;
       border-radius: 0;
-      color: $whiteColor;
       margin-left: 0;
       margin-right: 0;
       width: 100%;
-      border: none;
-      border: 0.1rem $whiteColor solid;
     }
   }
 }
