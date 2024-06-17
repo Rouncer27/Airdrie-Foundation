@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import HeroIntro from "../components/About/HeroIntro.astro";
 import SimpleContent from "../components/About/SimpleContent.astro";
 import WhatWeDo from "../components/About/WhatWeDo.astro";
-import BoardOfDirectors from "../components/About/BoardOfDirectors.astro";
+import BoardOfDirectors from "../components/About/BoardOfDirectors.jsx";
 import AnnualReports from "../components/About/AnnualReports.astro";
 import Newsletter from "../components/Home/Newsletter";
 
@@ -106,7 +106,10 @@ const {
   <HeroIntro data={page.aboutPage.heroIntroComponent} />
   <SimpleContent data={page.aboutPage.simpleContentComponent} />
   <WhatWeDo data={page.aboutPage.whatWeDoComponent} />
-  <BoardOfDirectors data={page.aboutPage.boardOfDirectorsComponent} />
+  <BoardOfDirectors
+    client:only="react"
+    data={page.aboutPage.boardOfDirectorsComponent}
+  />
   <AnnualReports data={page.aboutPage.annualReportsComponent} />
   <Newsletter client:only="react" data={page.aboutPage.newsletterComponent} />
 </Layout>
