@@ -19,7 +19,6 @@ const settings = {
 };
 
 const HeroSlider = ({ data }) => {
-  console.log("DATA: ", data);
   return (
     <div className="home-hero-slider">
       <Slider className="home-hero-slider-wrap" {...settings}>

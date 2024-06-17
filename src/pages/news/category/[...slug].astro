@@ -47,13 +47,26 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
           nodes {
             title
             uri
-            postType {
-              excerpt
-              featuredImage {
-                altText
-                sourceUrl
+            singlePostPage {
+              featuredImageComponent {
+                image {
+                  altText
+                  sourceUrl
+                }
+              }
+              excerptComponent {
+                excerpt
               }
             }
+
+            categories {
+              nodes {
+                name
+                slug
+                uri
+                }
+              }
+
           }
         }
         

@@ -21,7 +21,6 @@ const LegacyTree = ({ data }) => {
   };
 
   useEffect(() => {
-    console.log("RUN EFFECT!!");
     if (activeMembeEle !== null) {
       if (activeMembeEle.classList.contains("active")) {
         openActiveWindow(activeMembeEle);
@@ -32,7 +31,6 @@ const LegacyTree = ({ data }) => {
   }, [activeMember, activeMembeEle]);
 
   const closeActiveWindow = (mem) => {
-    console.log("Close the window!");
     const tl = gsap.timeline();
     const memTitle = mem.querySelector(
       ".legacy-tree-donors-content-member-title",
@@ -64,9 +62,6 @@ const LegacyTree = ({ data }) => {
       autoAlpha: 1,
     });
   };
-
-  console.log("activeMember", activeMember);
-  console.log("activeMembeEle", activeMembeEle);
 
   return (
     <div className="legacy-tree-donors">

@@ -2,7 +2,6 @@ import React from "react";
 import "./input.scss";
 
 const Input = ({ label, id, type, handler, value, required, size }) => {
-  console.log("INPUT: ", value);
   return (
     <div className={`adcf-form-input adcf-form-input-${size}`}>
       <label htmlFor={id}>

@@ -1,0 +1,13 @@
+---
+import Paragraph from "../shared/Paragraph.astro";
+import Wrapper from "../shared/Wrapper.astro";
+import "./noPostsFound.scss";
+---
+
+<div class="no-posts-found">
+  <Wrapper>
+    <Paragraph
+      >No News Articles under the category - {Astro.props.catName}</Paragraph
+    >
+  </Wrapper>
+</div>

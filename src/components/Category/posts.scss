@@ -1,9 +1,12 @@
 @use "../../styles/abstracts/" as *;
 @use "../../styles/global/paragraphs";
+@use "../../styles/global/wrappers";
+@use "../../styles/global/buttons";
 
 .post-list {
   &-wrapper {
-    justify-content: flex-start !important;
+    @extend .wrap-med;
+    justify-content: flex-start;
   }
 
   &-item {
@@ -70,6 +73,47 @@
             margin: 0;
           }
         }
+      }
+    }
+  }
+
+  .post-load-more {
+    width: 100%;
+    text-align: center;
+
+    button {
+      @extend .btn-one;
+
+      &:disabled {
+        background-color: rgab($primaryColor, 0.5);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .loading-more-posts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($primaryColor, 0.75);
+    z-index: 999999999999999;
+
+    &-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 45rem;
+      padding: 4rem;
+      background-color: $whiteColor;
+      border-radius: 1rem;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      p {
+        @extend .p-two;
+        margin: 0;
       }
     }
   }
