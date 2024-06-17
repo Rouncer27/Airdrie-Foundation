@@ -1,8 +1,14 @@
 @use "../../styles/abstracts/" as *;
 @use "../../styles/global/paragraphs";
+@use "../../styles/global/headlines";
+@use "../../styles/global/wrappers";
 
 .contact-form {
   padding: 4rem 0;
+
+  &-wrapper {
+    @extend .wrap-med;
+  }
 
   &-intro {
     width: calc(100%);
@@ -12,6 +18,7 @@
     }
 
     h2 {
+      @extend .hl-one;
       color: $primaryColor;
       text-transform: uppercase;
       font-weight: 700;
