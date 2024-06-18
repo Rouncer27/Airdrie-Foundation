@@ -16,13 +16,7 @@ const ContactForm = ({ data }) => {
     lastname: "",
     youremail: "",
     phonenumber: "",
-    eventtype: "",
-    eventname: "",
-    eventlocation: "",
-    numberattendess: "",
-    dateevent: "",
-    hear: "",
-    description: "",
+    questions: "",
   });
 
   const [formStatus, setFormStatus] = useState({
@@ -40,13 +34,7 @@ const ContactForm = ({ data }) => {
         lastname: "",
         youremail: "",
         phonenumber: "",
-        eventtype: "",
-        eventname: "",
-        eventlocation: "",
-        numberattendess: "",
-        dateevent: "",
-        hear: "",
-        description: "",
+        questions: "",
       };
     });
   };
@@ -70,7 +58,7 @@ const ContactForm = ({ data }) => {
                 setFormStatus,
                 formData,
                 submitToServer,
-                517,
+                583,
                 clearFormFields,
                 formStatus,
               )
@@ -124,7 +112,7 @@ const ContactForm = ({ data }) => {
 
             <div className="contact-form-fields-input-wrapper">
               <Textarea
-                value={formData.description}
+                value={formData.questions}
                 handler={(event) =>
                   handleOnChange(setFormData, formData, event)
                 }
@@ -133,7 +121,7 @@ const ContactForm = ({ data }) => {
                 position="last"
                 title="Questions or Comments"
                 type="text"
-                nameId="description"
+                nameId="questions"
                 required={true}
                 rows="5"
               />
