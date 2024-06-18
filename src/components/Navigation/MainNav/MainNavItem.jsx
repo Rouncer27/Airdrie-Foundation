@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MainNavItem = ({ item, currentPage }) => {
+const MainNavItem = ({ item, currentPage, pathname }) => {
   const [isSubActive, setIsSubActive] = useState(false);
 
   const handleIsActiveOn = () => {
@@ -26,9 +26,15 @@ const MainNavItem = ({ item, currentPage }) => {
           className={`main-nav-sub-menu${isSubActive ? " main-nav-sub-menu-active" : ""}`}
         >
           {item.childItems.nodes.map((subItem, subIndex) => {
+            const currentSubPage = pathname === subItem.uri;
             return (
               <li key={subIndex}>
-                <a href={subItem.uri}>{subItem.label}</a>
+                <a
+                  className={`${currentSubPage ? " main-nav-sub-current" : ""}`}
+                  href={subItem.uri}
+                >
+                  {subItem.label}
+                </a>
               </li>
             );
           })}

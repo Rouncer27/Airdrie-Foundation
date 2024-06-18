@@ -57,7 +57,7 @@
           position: absolute;
           top: calc(100% + 0.5rem);
           left: 0;
-          width: 27.5rem;
+          width: 30rem;
           padding: 1rem;
           background-color: $secondaryColor;
           transition: all 0.3s ease-in-out;
@@ -72,9 +72,23 @@
 
           li {
             a {
+              @extend .p-three;
+              border-bottom: 0.2rem solid transparent;
               font-weight: normal;
+              color: $whiteColor;
+
               &:hover {
                 color: $blackColor;
+              }
+            }
+
+            a.main-nav-sub-current {
+              color: $tertiaryColor;
+              font-weight: bold;
+              border-bottom-color: $tertiaryColor;
+
+              &:hover {
+                cursor: default;
               }
             }
           }

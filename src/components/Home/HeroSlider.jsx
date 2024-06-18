@@ -10,7 +10,7 @@ const settings = {
   draggable: true,
   infinite: true,
   speed: 500,
-  autoplay: false,
+  autoplay: true,
   autoplaySpeed: 10000,
   centerMode: false,
   arrows: false,

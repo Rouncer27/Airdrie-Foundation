@@ -12,6 +12,7 @@ const MainNav = (props) => {
               return (
                 <MainNavItem
                   currentPage={currentPage}
+                  pathname={props.pathname}
                   item={item}
                   key={index}
                 />

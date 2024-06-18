@@ -24,6 +24,7 @@
   &-block {
     position: relative;
     width: calc(100%);
+    margin: 2rem 0;
 
     @media (min-width: 768px) {
       width: calc(100% / 3);
