@@ -2,15 +2,24 @@
 
 .special-lists {
   &-component {
-    width: calc(50% - 5rem);
+    width: calc(100%);
     margin: 2rem auto;
 
+    @media (min-width: 900px) {
+      width: calc(50% - 5rem);
+      margin: 2rem auto;
+    }
+
     &.special-lists-component-left {
-      margin-right: 5rem;
+      @media (min-width: 900px) {
+        margin-right: 5rem;
+      }
     }
 
     &.special-lists-component-right {
-      margin-left: 5rem;
+      @media (min-width: 900px) {
+        margin-left: 5rem;
+      }
     }
 
     &-title {
