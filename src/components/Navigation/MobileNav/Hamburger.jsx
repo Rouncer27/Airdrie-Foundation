@@ -6,7 +6,7 @@ import MenuItem from "./MenuItem";
 // Animations. //
 import { staggerReveal } from "./animations/animations";
 
-const Hamburger = ({ state, mainMenu, mainLogo }) => {
+const Hamburger = ({ state, mainMenu, mainLogo, pathname }) => {
   let menu = useRef(null);
   let revealMenu = useRef(null);
   let revealMenuBackground = useRef(null);
@@ -77,6 +77,7 @@ const Hamburger = ({ state, mainMenu, mainLogo }) => {
                       href={item.uri}
                       title={item.label}
                       subMenu={item.childItems.nodes}
+                      pathname={pathname}
                     />
                   );
                 })}

@@ -4,7 +4,7 @@ import Hamburger from "./Hamburger";
 import NavButton from "./NavButton";
 import "./mobileNav.scss";
 
-const MobileNav = ({ mainMenu, mainLogo }) => {
+const MobileNav = ({ mainMenu, mainLogo, pathname }) => {
   const [state, setState] = useState({
     initial: false,
     clicked: null,
@@ -43,7 +43,12 @@ const MobileNav = ({ mainMenu, mainLogo }) => {
   return (
     <>
       <NavButton handleMenu={handleMenu} disabled={disabled} state={state} />
-      <Hamburger state={state} mainMenu={mainMenu} mainLogo={mainLogo} />
+      <Hamburger
+        state={state}
+        mainMenu={mainMenu}
+        mainLogo={mainLogo}
+        pathname={pathname}
+      />
     </>
   );
 };

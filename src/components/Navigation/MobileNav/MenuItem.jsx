@@ -4,7 +4,7 @@ import "./mobileSubMenu.scss";
 import MobileSubMenuItem from "./MobileSubMenuItem";
 import gsap from "gsap";
 
-const MenuItem = ({ href, title, subMenu }) => {
+const MenuItem = ({ href, title, subMenu, pathname }) => {
   const subMenuWrap = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -47,10 +47,15 @@ const MenuItem = ({ href, title, subMenu }) => {
     }, 1200);
   };
 
+  const currentPage = pathname === href;
+
   return (
     <div className="menu-links-item">
       <li className="menu-links-item-list">
-        <a className="menu-links-item-link" href={href}>
+        <a
+          className={`menu-links-item-link${currentPage ? " menu-links-item-link-current" : ""}`}
+          href={href}
+        >
           {title}
         </a>
         {subMenu.length > 0 ? (
@@ -64,7 +69,7 @@ const MenuItem = ({ href, title, subMenu }) => {
               &#43;
             </button>
             <ul ref={subMenuWrap} className={`mobile-sub-menu`}>
-              <MobileSubMenuItem items={subMenu} />
+              <MobileSubMenuItem items={subMenu} pathname={pathname} />
             </ul>
           </>
         ) : null}

@@ -42,6 +42,10 @@
       &:hover {
         color: $secondaryColor;
       }
+
+      &.menu-links-item-link-current {
+        color: $tertiaryColor;
+      }
     }
   }
 }

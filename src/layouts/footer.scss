@@ -102,9 +102,13 @@
     &-icons {
       ul {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 1rem;
         margin-bottom: 2.5rem;
+
+        @media (min-width: 768px) {
+          justify-content: center;
+        }
 
         li {
           margin-right: 0.5rem;

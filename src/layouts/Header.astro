@@ -82,6 +82,11 @@ const {
     />
   </div>
   <div class="header-mobile">
-    <MobileNav client:only="react" mainMenu={mobile} mainLogo={logoOptions} />
+    <MobileNav
+      client:only="react"
+      mainMenu={mobile}
+      mainLogo={logoOptions}
+      pathname={Astro.url.pathname}
+    />
   </div>
 </header>

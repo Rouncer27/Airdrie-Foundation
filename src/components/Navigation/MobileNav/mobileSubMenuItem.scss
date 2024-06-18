@@ -1,0 +1,5 @@
+@use "../../../styles/abstracts/" as *;
+
+a.sub-menu-item-current {
+  color: $tertiaryColor !important;
+}
