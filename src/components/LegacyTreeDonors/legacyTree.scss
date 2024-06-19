@@ -6,6 +6,17 @@
 .legacy-tree-donors {
   padding-bottom: 15rem;
 
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
   &-wrapper {
     @extend .wrap-med;
   }
@@ -23,12 +34,16 @@
 
     &-member {
       position: relative;
-      width: 32.5rem;
+      width: 100%;
       padding: 2rem;
       background-color: $primaryColor;
       transition: all 0.5s ease-in-out;
       transform: translate(0%, 0%);
-      z-index: 100;
+      z-index: 4;
+
+      @media (min-width: 768px) {
+        width: 32.5rem;
+      }
 
       &-title {
         text-align: center;
@@ -82,48 +97,79 @@
       }
 
       &.active {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 40rem;
         transition: all 0.5s ease-in-out;
-        z-index: 999999;
-        width: 65rem;
+        z-index: 9999999;
+
+        @media (min-width: 768px) {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 65rem;
+        }
+
         // text-align: left;
         .legacy-tree-donors-content-member-list {
           opacity: 1;
           visibility: visible;
           height: 100%;
-          max-height: 1000px;
+          max-height: 1500px;
           margin-top: 3.25rem;
           margin-bottom: 3.25rem;
           padding-top: 3.25rem;
           transition: all 0.25s ease-in-out;
+
+          @media (min-width: 768px) {
+            max-height: 1000px;
+          }
         }
       }
     }
 
     &-leaf {
-      position: absolute;
-      top: 10rem;
-      left: 7.5rem;
+      margin-bottom: 1rem;
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 10rem;
+        left: 7.5rem;
+        margin-bottom: 0;
+      }
+
+      @media (min-width: 1025px) {
+        top: 10rem;
+        left: 7.5rem;
+      }
     }
 
     &-branch {
-      position: absolute;
-      top: 27.5%;
-      left: 47%;
+      margin-bottom: 1rem;
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 27.5%;
+        left: 47%;
+        margin-bottom: 0;
+      }
     }
 
     &-root {
-      position: absolute;
-      top: 90%;
-      left: 10%;
+      margin-bottom: 1rem;
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 90%;
+        left: 10%;
+        margin-bottom: 0;
+      }
     }
 
     &-trunk {
-      position: absolute;
-      top: 70%;
-      left: 25%;
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 70%;
+        left: 25%;
+      }
     }
   }
 }

@@ -141,6 +141,14 @@ const LegacyTree = ({ data }) => {
           </p>
         </div>
       </div>
+      {activeMember !== null ? (
+        <div
+          onClick={() => {
+            handleCloseMember(activeMember);
+          }}
+          className="legacy-tree-donors-overlay"
+        ></div>
+      ) : null}
     </div>
   );
 };
