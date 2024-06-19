@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import gsap from "gsap";
+import { useState } from "react";
 import "./legacyTree.scss";
 
 const LegacyTree = ({ data }) => {
@@ -7,6 +6,16 @@ const LegacyTree = ({ data }) => {
   const [activeMembeEle, setActiveMembeEle] = useState(null);
 
   const handleActivateMember = (mem) => {
+    const allLists = document.querySelectorAll(
+      ".legacy-tree-donors-content-member",
+    );
+
+    allLists.forEach((item) => {
+      if (item.classList.contains("active")) {
+        item.classList.remove("active");
+      }
+    });
+
     setActiveMember(mem);
     const activeMemberSelected = document.querySelector(
       `.legacy-tree-donors-content-${mem}`,
@@ -18,49 +27,6 @@ const LegacyTree = ({ data }) => {
   const handleCloseMember = (mem) => {
     setActiveMember(null);
     activeMembeEle.classList.remove("active");
-  };
-
-  useEffect(() => {
-    if (activeMembeEle !== null) {
-      if (activeMembeEle.classList.contains("active")) {
-        openActiveWindow(activeMembeEle);
-      } else {
-        closeActiveWindow(activeMembeEle);
-      }
-    }
-  }, [activeMember, activeMembeEle]);
-
-  const closeActiveWindow = (mem) => {
-    const tl = gsap.timeline();
-    const memTitle = mem.querySelector(
-      ".legacy-tree-donors-content-member-title",
-    );
-    const memList = mem.querySelector(
-      ".legacy-tree-donors-content-member-list",
-    );
-
-    tl.to(mem, { width: "325px", zIndex: 100 }).to(memList, {
-      display: "none",
-      maxHeight: "0px",
-      autoAlpha: 0,
-    });
-  };
-
-  const openActiveWindow = (mem) => {
-    const tl = gsap.timeline();
-
-    const memTitle = mem.querySelector(
-      ".legacy-tree-donors-content-member-title",
-    );
-    const memList = mem.querySelector(
-      ".legacy-tree-donors-content-member-list",
-    );
-
-    tl.to(mem, { width: "650px", zIndex: 9999999 }).to(memList, {
-      display: "block",
-      maxHeight: "1500px",
-      autoAlpha: 1,
-    });
   };
 
   return (
