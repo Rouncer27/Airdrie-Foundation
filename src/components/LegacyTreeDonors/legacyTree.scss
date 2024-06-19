@@ -4,8 +4,6 @@
 @use "../../styles/global/wrappers";
 
 .legacy-tree-donors {
-  padding-bottom: 15rem;
-
   &-overlay {
     position: fixed;
     top: 0;
@@ -22,6 +20,14 @@
   }
 
   &-asterisk {
+    @media (min-width: 768px) {
+      margin-top: 5rem;
+    }
+
+    @media (min-width: 1025px) {
+      margin-top: 3rem;
+    }
+
     p {
       @extend .p-three;
     }
