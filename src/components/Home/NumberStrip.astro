@@ -9,11 +9,15 @@ import { Image } from "astro:assets";
 <div class="numstrip">
   <Wrapper classes="numstrip-wrapper">
     <div class="numstrip-one">
-      <p class="numstrip-one-number">&#36;{Astro.props.data.statOneNumber}</p>
+      <p class="numstrip-number numstrip-one-number">
+        &#36;<span>{Astro.props.data.statOneNumber}</span>
+      </p>
       <p class="numstrip-one-title">{Astro.props.data.statOneTitle}</p>
     </div>
     <div class="numstrip-two">
-      <p class="numstrip-two-number">&#36;{Astro.props.data.statTwoNumber}</p>
+      <p class="numstrip-number numstrip-two-number">
+        &#36;<span>{Astro.props.data.statTwoNumber}</span>
+      </p>
       <p class="numstrip-two-title">{Astro.props.data.statTwoTitle}</p>
     </div>
   </Wrapper>
@@ -23,3 +27,39 @@ import { Image } from "astro:assets";
   </div>
   <div class="numstrip-overlay"></div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const trigger = document.querySelector(".numstrip");
+  const allStatNums = document.querySelectorAll(".numstrip-number span");
+
+  if (allStatNums.length > 0 && trigger) {
+    gsap.from(allStatNums, {
+      textContent: 0,
+      duration: 2,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          this.targets()[0].innerHTML = numberWithCommas(
+            Math.ceil(this.targets()[0].textContent),
+          );
+        },
+      },
+
+      scrollTrigger: {
+        start: "top 50%",
+        markers: false,
+        trigger: trigger,
+      },
+    });
+  }
+</script>
