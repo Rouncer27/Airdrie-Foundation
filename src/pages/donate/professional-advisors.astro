@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroIntro from "../../components/ProfessionalAdvisors/HeroIntro.astro";
+import Wrapper from "../../components/shared/Wrapper.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -52,4 +53,12 @@ const {
 
 <Layout>
   <HeroIntro data={page.professionalAdvisorsPage.heroIntroComponent} />
+  <div>
+    <Wrapper>
+      <p>
+        More information about Professional Advisors is coming soon. Check back
+        often for more resources and details.
+      </p>
+    </Wrapper>
+  </div>
 </Layout>

@@ -10,7 +10,9 @@ import "./iconPoints.scss";
     {
       Astro.props.data.points.map((point) => {
         return (
-          <div class="donate-icons-point">
+          <div
+            class={`donate-icons-point donate-icons-point-${point.backgroundColour}`}
+          >
             <div class="donate-icons-point-icon">
               <div class="donate-icons-point-icon-inner">
                 <Image

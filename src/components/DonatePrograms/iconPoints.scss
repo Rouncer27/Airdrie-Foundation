@@ -4,6 +4,7 @@
 .donatepro-icons {
   &-point {
     width: calc(100% - 2rem);
+    padding: 2rem;
     margin: 2rem 1rem;
 
     @media (min-width: 768px) {
@@ -14,6 +15,18 @@
     @media (min-width: 1025px) {
       width: calc((100% / 3) - 6rem);
       margin: 2rem 3rem;
+    }
+
+    &.donatepro-icons-point-green {
+      background-color: rgba($secondaryColor, 0.15);
+    }
+
+    &.donatepro-icons-point-aqua {
+      background-color: rgba($accentColor, 0.15);
+    }
+
+    &.donatepro-icons-point-pine {
+      background-color: rgba($tertiaryColor, 0.15);
     }
 
     &-icon {

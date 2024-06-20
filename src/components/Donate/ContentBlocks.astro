@@ -10,7 +10,6 @@ import Button from "../shared/Button.astro";
     {
       Astro.props.data.blocks.map((block, index) => {
         const reversed = (index + 1) % 2 === 0;
-
         return (
           <div
             class={`donate-content-blocks-block${reversed ? " donate-content-blocks-block-reversed" : ""}`}
@@ -36,7 +35,7 @@ import Button from "../shared/Button.astro";
                 </div>
                 <div set:html={block.content} />
                 <div>
-                  <Button href={block.buttonUrl}>{block.buttonText}</Button>
+                  <Button href={block.buttonLink}>{block.buttonText}</Button>
                 </div>
               </div>
             </div>

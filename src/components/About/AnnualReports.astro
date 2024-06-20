@@ -15,11 +15,17 @@ import "./annualReports.scss";
           return (
             <div class="about-reports-list-item">
               <div>
-                <Image
-                  src={report.reportImage.sourceUrl}
-                  alt={report.reportImage.altText}
-                  inferSize={true}
-                />
+                <a
+                  target="_blank"
+                  rel="noopener"
+                  href={report.reportPdf.mediaItemUrl}
+                >
+                  <Image
+                    src={report.reportImage.sourceUrl}
+                    alt={report.reportImage.altText}
+                    inferSize={true}
+                  />
+                </a>
               </div>
             </div>
           );
