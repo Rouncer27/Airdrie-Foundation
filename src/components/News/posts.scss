@@ -49,10 +49,12 @@
       padding: 3rem;
 
       &-title {
-        padding-bottom: 7.5rem;
+        padding-top: 2.5rem;
+        padding-bottom: 0.5rem;
         h2 {
           @extend .p-two;
           color: $whiteColor;
+          font-weight: 700;
         }
       }
 

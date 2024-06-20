@@ -1,6 +1,9 @@
 @use "../../styles/abstracts/" as *;
 
 .main-content {
+  max-width: 100rem;
+  margin: auto;
+
   &-title {
     width: 100%;
 
