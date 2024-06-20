@@ -83,7 +83,10 @@ const Hamburger = ({ state, mainMenu, mainLogo, pathname }) => {
                 })}
                 <div className="menu-links-item">
                   <li className="menu-links-item-list">
-                    <a className="menu-links-item-link" href="#">
+                    <a
+                      className="menu-links-item-link"
+                      href="/donate/donate-now/"
+                    >
                       Donate Now
                     </a>
                   </li>

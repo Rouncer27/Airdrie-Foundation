@@ -22,7 +22,7 @@ const MainNav = (props) => {
             }
           })}
           <li className="main-nav-top-list-item main-nav-top-list-item-cta-one">
-            <a href="#">Donate Now</a>
+            <a href="/donate/donate-now/">Donate Now</a>
           </li>
         </ul>
       </nav>

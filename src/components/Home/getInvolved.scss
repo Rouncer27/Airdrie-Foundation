@@ -5,6 +5,7 @@
 .involved {
   &-title {
     width: 100%;
+    margin-bottom: 6rem;
 
     h1 {
       color: $primaryColor;
@@ -24,10 +25,11 @@
   &-block {
     position: relative;
     width: calc(100%);
-    margin: 2rem 0;
+    margin: 4rem 0;
 
     @media (min-width: 768px) {
-      width: calc(100% / 3);
+      width: calc((100% / 2) - 2rem);
+      margin: 3rem 1rem;
     }
 
     @media (min-width: 1025px) {
@@ -45,6 +47,14 @@
 
     &-3 {
       background-color: #0b5f63;
+    }
+
+    &-icon {
+      position: absolute;
+      top: -6rem;
+      left: 50%;
+      width: 12rem;
+      transform: translateX(-50%);
     }
 
     &-contentwrap {

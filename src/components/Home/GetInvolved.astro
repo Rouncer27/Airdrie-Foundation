@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Headline from "../shared/Headline.astro";
 import Wrapper from "../shared/Wrapper.astro";
 import "./getInvolved.scss";
+console.log(Astro.props.data);
 ---
 
 <div class="involved">
@@ -34,6 +35,13 @@ import "./getInvolved.scss";
                 <div class="involved-block-link">
                   <a href={block.pageLink.uri}>{block.linkText}</a>
                 </div>
+              </div>
+              <div class="involved-block-icon">
+                <Image
+                  src={block.icon.sourceUrl}
+                  alt={block.icon.altText}
+                  inferSize={true}
+                />
               </div>
             </div>
           );
