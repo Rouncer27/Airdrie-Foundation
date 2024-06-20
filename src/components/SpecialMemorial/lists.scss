@@ -4,21 +4,27 @@
   &-component {
     width: calc(100%);
     margin: 2rem auto;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
 
     @media (min-width: 900px) {
-      width: calc(50% - 5rem);
+      width: calc(50% - 2rem);
       margin: 2rem auto;
     }
 
     &.special-lists-component-left {
+      background-color: rgba($secondaryColor, 0.1);
+
       @media (min-width: 900px) {
-        margin-right: 5rem;
+        margin-right: 2rem;
       }
     }
 
     &.special-lists-component-right {
+      background-color: rgba($primaryColor, 0.1);
+
       @media (min-width: 900px) {
-        margin-left: 5rem;
+        margin-left: 2rem;
       }
     }
 
