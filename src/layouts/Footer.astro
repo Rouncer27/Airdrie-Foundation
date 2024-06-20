@@ -49,8 +49,9 @@ const {
       </div>
       <div class="main-footer-contact-info">
         <p>
-          <a href={footerOptions.footerOptions.contactEmail}
-            >Contact us via email here</a
+          Contact us via
+          <a href={`mailto:${footerOptions.footerOptions.contactEmail}`}
+            >email</a
           >
         </p>
         <p>
@@ -65,8 +66,8 @@ const {
       />
     </div>
     <div class="main-footer-newsletter">
-      <p>{footerOptions.footerOptions.newsletterContent}</p>
-      <p><a href={footerOptions.footerOptions.newsletterUrl}>Sign-up</a></p>
+      <div set:html={footerOptions.footerOptions.newsletterContent} />
+      <a href={footerOptions.footerOptions.newsletterUrl}>Sign-up</a>
     </div>
     <div class="main-footer-social">
       <div class="main-footer-social-icons">
