@@ -54,6 +54,11 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             # START Hero section #
 
             listGrantsComponent {
+              mainTitle
+              headerImage {
+                altText
+                sourceUrl
+              }
               grants {
                 year
                 content

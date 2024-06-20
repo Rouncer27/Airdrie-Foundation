@@ -1,10 +1,23 @@
 ---
+import { Image } from "astro:assets";
 import Wrapper from "../shared/Wrapper.astro";
 import "./listGrants.scss";
 import ListItem from "./ListItem.jsx";
 ---
 
 <div class="grants-list">
+  <div class="grants-list-header">
+    <div class="grants-list-header-title">
+      <h2>{Astro.props.data.mainTitle}</h2>
+    </div>
+    <div class="grants-list-header-bgimage">
+      <Image
+        src={Astro.props.data.headerImage.sourceUrl}
+        alt={Astro.props.data.mainTitle}
+        inferSize={true}
+      />
+    </div>
+  </div>
   <Wrapper>
     {
       Astro.props.data.grants.map((grant) => {
