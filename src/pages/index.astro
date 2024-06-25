@@ -147,10 +147,12 @@ const {
 ---
 
 <Layout title="Welcome to Astro.">
-  <HeroSlider
-    client:only="react"
-    data={page.homePage.homeHeroSliderComponent}
-  />
+  <div class="home-hero-slider">
+    <HeroSlider
+      client:only="react"
+      data={page.homePage.homeHeroSliderComponent}
+    />
+  </div>
   <ImageContent data={page.homePage.imageContentComponent} />
   <GetInvolved data={page.homePage.getInvolvedComponent} />
   <NumberStrip data={page.homePage.numbersStripComponent} />
