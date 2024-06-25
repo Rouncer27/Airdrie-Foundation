@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import "./imageContent.scss";
 ---
 
-<div class="imgcont">
+<div id="image-content" class="imgcont">
   <div class="imgcont-wrapper">
     <div class="imgcont-content">
       <div class="imgcont-content-inner">
@@ -28,3 +28,52 @@ import "./imageContent.scss";
     </div>
   </div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerContainer = document.querySelector("#image-content");
+  const imageWrap = document.querySelector(".imgcont-image");
+  const contentTop = document.querySelector(".imgcont-content-top");
+  const contentBot = document.querySelector(".imgcont-content-bot");
+
+  if (triggerContainer && imageWrap && contentTop && contentBot) {
+    gsap.fromTo(
+      imageWrap,
+      { autoAlpha: 0, x: 100 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+      },
+    );
+
+    gsap.fromTo(
+      [contentTop, contentBot],
+      { autoAlpha: 0, x: -100 },
+      {
+        delay: 0.5,
+        duration: 1,
+        autoAlpha: 1,
+        x: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+        stagger: {
+          each: 0.5,
+        },
+      },
+    );
+  }
+</script>

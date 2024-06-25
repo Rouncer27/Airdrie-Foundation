@@ -6,7 +6,7 @@ import "./getInvolved.scss";
 console.log(Astro.props.data);
 ---
 
-<div class="involved">
+<div id="get-involved-section" class="involved">
   <Wrapper>
     <div class="involved-title">
       <Headline hlstyle="one">How to get involved</Headline>
@@ -50,3 +50,51 @@ console.log(Astro.props.data);
     </div>
   </Wrapper>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerContainer = document.querySelector("#get-involved-section");
+  const title = document.querySelector(".involved-title");
+  const setps = document.querySelectorAll(".involved-block");
+
+  if (triggerContainer && title && setps) {
+    gsap.fromTo(
+      title,
+      { autoAlpha: 0, y: 100 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+      },
+    );
+
+    gsap.fromTo(
+      setps,
+      { autoAlpha: 0, y: 200 },
+      {
+        delay: 0.5,
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+        stagger: {
+          each: 0.5,
+        },
+      },
+    );
+  }
+</script>
