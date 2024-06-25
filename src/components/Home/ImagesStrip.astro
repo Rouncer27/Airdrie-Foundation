@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import "./imagesStrip.scss";
 ---
 
-<div class="imgstrip">
+<div id="image-strip" class="imgstrip">
   <div class="imgstrip-wrapper">
     {
       Astro.props.data.images.map((image) => {
@@ -20,3 +20,33 @@ import "./imagesStrip.scss";
     }
   </div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerContainer = document.querySelector("#image-strip");
+  const setps = document.querySelectorAll(".imgstrip-img");
+
+  if (triggerContainer && setps) {
+    gsap.fromTo(
+      setps,
+      { autoAlpha: 0, y: 200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+        stagger: {
+          each: 0.5,
+        },
+      },
+    );
+  }
+</script>
