@@ -5,7 +5,7 @@ import Headline from "../shared/Headline.astro";
 import "./iconPoints.scss";
 ---
 
-<div class="donate-icons">
+<div id="donate-icons-section" class="donate-icons">
   <Wrapper>
     {
       Astro.props.data.points.map((point) => {
@@ -36,3 +36,33 @@ import "./iconPoints.scss";
     }
   </Wrapper>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerContainer = document.querySelector("#donate-icons-section");
+  const setps = document.querySelectorAll(".donate-icons-point");
+
+  if (triggerContainer && setps) {
+    gsap.fromTo(
+      setps,
+      { autoAlpha: 0, y: 200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+        stagger: {
+          each: 0.25,
+        },
+      },
+    );
+  }
+</script>

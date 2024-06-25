@@ -5,7 +5,7 @@ import Headline from "../shared/Headline.astro";
 import Button from "../shared/Button.astro";
 ---
 
-<div class="donate-content-blocks">
+<div id="content-blocks-section" class="donate-content-blocks">
   <div class="donate-content-blocks-wrapper">
     {
       Astro.props.data.blocks.map((block, index) => {
@@ -45,3 +45,33 @@ import Button from "../shared/Button.astro";
     }
   </div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerContainer = document.querySelector("#content-blocks-section");
+  const setps = document.querySelectorAll(".donate-content-blocks-block");
+
+  if (triggerContainer && setps) {
+    gsap.fromTo(
+      setps,
+      { autoAlpha: 0, y: 200 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          start: "top 30%",
+          markers: false,
+          trigger: triggerContainer,
+        },
+        stagger: {
+          each: 0.25,
+        },
+      },
+    );
+  }
+</script>
