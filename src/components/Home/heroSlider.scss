@@ -5,6 +5,19 @@
 
 .home-hero-slider {
   position: relative;
+  height: 55rem;
+
+  @media (min-width: 550px) {
+    height: 50rem;
+  }
+
+  @media (min-width: 768px) {
+    height: 60rem;
+  }
+
+  @media (min-width: 1025px) {
+    height: 80rem;
+  }
 
   .slick-dots {
     bottom: 2.5rem;
