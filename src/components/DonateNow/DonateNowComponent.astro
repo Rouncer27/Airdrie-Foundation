@@ -1,0 +1,10 @@
+---
+import Wrapper from "../shared/Wrapper.astro";
+import "./donateNowComponent.scss";
+---
+
+<section class="donate-now-embed">
+  <Wrapper>
+    <div set:html={Astro.props.data.donateNowContent} />
+  </Wrapper>
+</section>

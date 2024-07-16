@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroIntro from "../../components/DonateNow/HeroIntro.astro";
+import DonateNowComponent from "../../components/DonateNow/DonateNowComponent.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -25,6 +26,10 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
             }
 
             # START Hero section #
+
+            donateNowComponent {
+              donateNowContent
+            }
 
             # START Hero section #
 
@@ -52,4 +57,5 @@ const {
 
 <Layout>
   <HeroIntro data={page.donateNowPage.heroIntroComponent} />
+  <DonateNowComponent data={page.donateNowPage.donateNowComponent} />
 </Layout>

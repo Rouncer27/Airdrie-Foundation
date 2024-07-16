@@ -11,10 +11,16 @@ import "./linksBanner.scss";
       <Headline ele="h2" hlstyle="one">{Astro.props.data.title}</Headline>
     </div>
     <div class="grants-links-banner-links">
-      <Button href={Astro.props.data.buttonOneFile.mediaItemUrl}
+      <Button
+        target="_blank"
+        rel="noopener"
+        href={Astro.props.data.buttonOneFile.mediaItemUrl}
         >{Astro.props.data.buttonOneText}</Button
       >
-      <Button href={Astro.props.data.buttonTwoFile.mediaItemUrl}
+      <Button
+        target="_blank"
+        rel="noopener"
+        href={Astro.props.data.buttonTwoFile.mediaItemUrl}
         >{Astro.props.data.buttonTwoText}</Button
       >
     </div>
