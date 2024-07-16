@@ -56,15 +56,16 @@
       @extend .p-two;
       color: $blackColor;
       position: relative;
-      margin-bottom: 0.75em;
+      margin-bottom: 0.5em;
       padding-left: 0.75em;
 
       &::before {
         position: absolute;
-        top: 0.1em;
+        top: 0em;
         left: 0;
         padding-right: 0.5em;
         color: rgba($blackColor, 0.75);
+        content: "\2022";
       }
     }
   }
