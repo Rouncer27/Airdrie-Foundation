@@ -127,13 +127,13 @@ const {
         </ul>
       </div>
       <div class="main-footer-social-members">
-        <p>Proude Member of</p>
+        <p>Proud Member of</p>
         <ul>
           {
             footerOptions.footerOptions.memberLogos.map((logo) => {
               return (
                 <li>
-                  <a href={logo.url}>
+                  <a target="_blank" rel="noopener" href={logo.url}>
                     <Image
                       src={logo.logo.sourceUrl}
                       alt={logo.logo.altText}

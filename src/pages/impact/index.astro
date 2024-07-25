@@ -80,8 +80,11 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 linkBlogPost
                 blogPost {
                   ... on Post {
-                    id
-                    slug
+                    uri
+                  }
+
+                  ... on Page {
+                    uri
                   }
                 }
               }

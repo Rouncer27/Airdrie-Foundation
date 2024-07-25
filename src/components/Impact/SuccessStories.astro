@@ -28,7 +28,7 @@ import "./successStories.scss";
               <div set:html={story.content} />
               {story.linkBlogPost ? (
                 <div>
-                  <a href={`/news/${story.blogPost.slug}`}>
+                  <a href={`${story.blogPost.uri}`}>
                     <span>&#62;</span> Read More
                   </a>
                 </div>
