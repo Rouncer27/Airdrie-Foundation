@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import HeroIntro from "../../components/ProfessionalAdvisors/HeroIntro.astro";
-import Wrapper from "../../components/shared/Wrapper.astro";
+import MainContent from "../../components/ProfessionalAdvisors/MainContent.astro";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
   method: "POST",
@@ -23,6 +23,10 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
                 altText
                 sourceUrl
                 }
+            }
+
+            mainContentComponent {
+              mainContent
             }
 
             # START Hero section #
@@ -53,12 +57,5 @@ const {
 
 <Layout>
   <HeroIntro data={page.professionalAdvisorsPage.heroIntroComponent} />
-  <div>
-    <Wrapper>
-      <p>
-        More information about Professional Advisors is coming soon. Check back
-        often for more resources and details.
-      </p>
-    </Wrapper>
-  </div>
+  <MainContent data={page.professionalAdvisorsPage.mainContentComponent} />
 </Layout>
