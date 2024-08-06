@@ -1,0 +1,62 @@
+@use "../styles/abstracts/" as *;
+@use "../styles/global/headlines";
+@use "../styles/global/paragraphs";
+@use "../styles/global/wrappers";
+@use "../styles/global/buttons";
+
+.mailchimp {
+  width: 100%;
+  padding: 6rem 0;
+  border-top: solid 1.8rem $shadowColor;
+  background-color: $blackColor;
+
+  &-intro {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(50%);
+    }
+
+    h2,
+    h3,
+    p {
+      color: $whiteColor;
+    }
+
+    h2 {
+      @extend .hl-one;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      @extend .hl-three;
+      margin-top: 0;
+      font-weight: 300;
+    }
+
+    p {
+      @extend .p-two;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &-inner {
+      max-width: 45rem;
+      margin-right: auto;
+      margin-left: 0;
+    }
+  }
+
+  &-form {
+    width: calc(100%);
+
+    @media (min-width: 768px) {
+      width: calc(50%);
+    }
+  }
+}

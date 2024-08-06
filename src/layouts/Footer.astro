@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Wrapper from "../components/shared/Wrapper.astro";
+import Mailchimp from "./Mailchimp.astro";
 import "./footer.scss";
 
 const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
@@ -42,6 +43,9 @@ const {
 ---
 
 <footer class="main-footer">
+  <div>
+    <Mailchimp />
+  </div>
   <Wrapper classes="main-footer-wrap">
     <div class="main-footer-contact">
       <div class="main-footer-contact-donate">
