@@ -66,7 +66,7 @@
   &-newsletter {
     width: calc(100%);
     background-color: rgba($blackColor, 0);
-    padding: 4rem 2rem;
+    padding: 0;
 
     @media (min-width: 1025px) {
       width: calc(100% / 3);
@@ -86,7 +86,10 @@
 
     &-icons {
       margin-top: 2.5rem;
-      text-align: center;
+
+      @media (min-width: 768px) {
+        text-align: center;
+      }
 
       p {
         @extend .p-three;
@@ -166,7 +169,6 @@
 
   &-social {
     width: calc(100%);
-    margin-top: 2.5rem;
 
     @media (min-width: 1025px) {
       width: calc(100% / 3);
