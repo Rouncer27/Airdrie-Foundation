@@ -3,6 +3,7 @@ import "../styles/styles.scss";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { baseData } from "../data/siteData";
+import CookiePopup from "../components/shared/CookiePopup.jsx";
 
 import "@fontsource/poppins/100.css";
 import "@fontsource/poppins/200.css";
@@ -66,6 +67,7 @@ const baseUrl = Astro.url ? Astro.url : baseData.url;
   <body>
     <Header />
     <slot />
+    <CookiePopup client:only="react" />
     <Footer />
   </body>
 </html>
