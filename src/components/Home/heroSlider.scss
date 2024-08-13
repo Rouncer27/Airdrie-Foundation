@@ -5,10 +5,10 @@
 
 .home-hero-slider {
   position: relative;
-  height: 55rem;
+  height: 75rem;
 
   @media (min-width: 550px) {
-    height: 50rem;
+    height: 60rem;
   }
 
   @media (min-width: 768px) {
@@ -54,10 +54,10 @@
   &-slide {
     position: relative;
     width: 100%;
-    height: 55rem;
+    height: 75rem;
 
     @media (min-width: 550px) {
-      height: 50rem;
+      height: 60rem;
     }
 
     @media (min-width: 768px) {
@@ -89,16 +89,24 @@
       position: absolute;
       bottom: 8rem;
       left: 0;
-      max-width: 88.2rem;
+      max-width: 100%;
       padding: 4.5rem;
       background-color: rgba($primaryColor, 0.85);
       z-index: 100;
+
+      @media (min-width: 1025px) {
+        max-width: 88.2rem;
+      }
 
       &-inner {
         margin-right: 25rem;
         margin-left: auto;
         width: 100%;
-        max-width: 65rem;
+        max-width: 100%;
+
+        @media (min-width: 1025px) {
+          max-width: 65rem;
+        }
 
         &-para {
           width: 100%;
