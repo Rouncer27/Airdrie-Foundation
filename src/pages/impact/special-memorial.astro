@@ -13,6 +13,18 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
 	query specialMemorialPageQuery {
         page(id: "/impact/special-memorial", idType: URI) {
+
+           seoMetaTags {
+						seoMetaInformation {
+							metaImage {
+								altText
+								sourceUrl
+							}
+							metaTitle
+							metaDescription
+						}
+					}
+
         specialMemorialPage {
 
             # START Hero section #
@@ -71,7 +83,11 @@ const {
 } = await response.json();
 ---
 
-<Layout>
+<Layout
+  metaImg={page.seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={page.seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={page.seoMetaTags.seoMetaInformation.metaDescription}
+>
   <HeroIntro data={page.specialMemorialPage.heroIntroComponent} />
   <Lists data={page.specialMemorialPage.listsComponent} />
   <BottomPageImage data={page.specialMemorialPage.bottomPageImageComponent} />

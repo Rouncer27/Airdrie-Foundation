@@ -16,6 +16,19 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
 	query grantsPageQuery {
         page(id: "/grants", idType: URI) {
+
+          seoMetaTags {
+						seoMetaInformation {
+							metaImage {
+								altText
+								sourceUrl
+							}
+							metaTitle
+							metaDescription
+						}
+					}
+
+
             grantsPage {
 
             # START Hero section #
@@ -104,7 +117,11 @@ const {
 } = await response.json();
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout
+  metaImg={page.seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={page.seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={page.seoMetaTags.seoMetaInformation.metaDescription}
+>
   <HeroIntro data={page.grantsPage.heroIntroComponent} />
   <SimpleContent data={page.grantsPage.simpleContentComponent} />
   <LinksBanner data={page.grantsPage.linksBannerComponent} />

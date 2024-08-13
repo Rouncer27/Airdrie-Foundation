@@ -12,6 +12,18 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
 	query legacyTreeDonorsPageQuery {
         page(id: "/impact/legacy-tree-donors", idType: URI) {
+
+             seoMetaTags {
+						seoMetaInformation {
+							metaImage {
+								altText
+								sourceUrl
+							}
+							metaTitle
+							metaDescription
+						}
+					}
+
           legacyTreeDonorsPage {
 
             # START Hero section #
@@ -74,7 +86,11 @@ const {
 } = await response.json();
 ---
 
-<Layout>
+<Layout
+  metaImg={page.seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={page.seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={page.seoMetaTags.seoMetaInformation.metaDescription}
+>
   <HeroIntro data={page.legacyTreeDonorsPage.heroIntroComponent} />
   <LegacyTree
     client:only="react"

@@ -1,0 +1,16 @@
+---
+import Wrapper from "../shared/Wrapper.astro";
+import Wysiwyg from "../shared/Wysiwyg.astro";
+import "./mainContent.scss";
+---
+
+<div class="privacy-main-content">
+  <Wrapper>
+    <div>
+      <h1>Privacy Policy</h1>
+    </div>
+    <Wysiwyg>
+      <div set:html={Astro.props.data.mainContent} />
+    </Wysiwyg>
+  </Wrapper>
+</div>

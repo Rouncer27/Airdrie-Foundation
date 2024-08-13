@@ -19,6 +19,19 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
 			query homePageQuery {
 				page(id: "/", idType: URI) {
+
+        seoMetaTags {
+						seoMetaInformation {
+							metaImage {
+								altText
+								sourceUrl
+							}
+							metaTitle
+							metaDescription
+						}
+					}
+
+
 					homePage {
 
 						# START Hero section #
@@ -146,7 +159,11 @@ const {
 } = await response.json();
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout
+  metaImg={page.seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={page.seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={page.seoMetaTags.seoMetaInformation.metaDescription}
+>
   <div class="home-hero-slider">
     <HeroSlider
       client:only="react"

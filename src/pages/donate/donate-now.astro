@@ -12,6 +12,17 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
 	query donateNowPageQuery {
         page(id: "/donate/donate-now", idType: URI) {
+              seoMetaTags {
+						seoMetaInformation {
+							metaImage {
+								altText
+								sourceUrl
+							}
+							metaTitle
+							metaDescription
+						}
+					}
+            
             donateNowPage {
 
             # START Hero section #
@@ -55,7 +66,11 @@ const {
 } = await response.json();
 ---
 
-<Layout>
+<Layout
+  metaImg={page.seoMetaTags.seoMetaInformation.metaImage.sourceUrl}
+  metaTitle={page.seoMetaTags.seoMetaInformation.metaTitle}
+  metaDescription={page.seoMetaTags.seoMetaInformation.metaDescription}
+>
   <HeroIntro data={page.donateNowPage.heroIntroComponent} />
   <DonateNowComponent data={page.donateNowPage.donateNowComponent} />
 </Layout>
