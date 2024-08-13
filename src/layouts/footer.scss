@@ -10,6 +10,22 @@
     align-items: flex-start;
   }
 
+  .footer-copy {
+    width: 100%;
+    margin-top: 5rem;
+    text-align: center;
+
+    p,
+    a {
+      @extend .p-four;
+      color: $whiteColor;
+    }
+
+    a:hover {
+      color: $blackColor;
+    }
+  }
+
   &-contact {
     width: calc(100%);
     margin-bottom: 2.5rem;
