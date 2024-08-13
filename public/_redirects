@@ -1,5 +1,7 @@
+https://www.airdriefoundation.ca/_ https://airdriefoundation.ca/:splat 301!
+http://www.airdriefoundation.ca/_ https://airdriefoundation.ca/:splat 301!
 
-
+https://airdrie-foundation.netlify.app/* https://airdriefoundation.ca/:splat 301!
 
 /home/ /
 
@@ -11,7 +13,7 @@
 
 /about-us/ /about
 
-/annual-reports/ /impact
+/annual-reports/ /about
 
 /articles/ /news
 
