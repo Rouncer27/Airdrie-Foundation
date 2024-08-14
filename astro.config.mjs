@@ -7,7 +7,15 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://airdriefoundation.ca/",
-  integrations: [react(), partytown(), sitemap()],
+  integrations: [
+    react(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+    sitemap(),
+  ],
   image: {
     domains: ["airdriefoundation.swbdatabases3.com"],
   },

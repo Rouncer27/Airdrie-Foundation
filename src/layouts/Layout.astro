@@ -63,6 +63,21 @@ const baseUrl = Astro.url ? Astro.url : baseData.url;
       name="twitter:creator"
       content={"Airdrie and District Community Foundation."}
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9GDJHM0JWK"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-9GDJHM0JWK");
+    </script>
   </head>
   <body>
     <Header />
