@@ -63,13 +63,17 @@
       width: 97.5%;
       height: 100%;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-direction: column;
       transform: translate(-50%, -50%);
       z-index: 10;
       overflow: scroll;
 
       @media (min-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
         width: 80%;
         height: auto;
       }
