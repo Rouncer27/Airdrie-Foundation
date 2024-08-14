@@ -163,7 +163,6 @@
       }
 
       &-bio {
-        position: relative;
         width: calc(100%);
         padding: 2rem;
         background-color: $primaryColor;
@@ -178,9 +177,7 @@
         }
 
         &-content {
-          position: relative;
           width: 100%;
-          overflow: scroll;
 
           p {
             @extend .p-two;
