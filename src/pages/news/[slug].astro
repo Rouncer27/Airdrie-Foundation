@@ -60,6 +60,19 @@ const response = await fetch(`${import.meta.env.WPGRAPHQL_URL}`, {
     query: `
     query postQuery($id: ID!) {
       post(idType: SLUG, id: $id) {
+
+        seoMetaTags {
+						seoMetaInformation {
+							metaImage {
+								altText
+								sourceUrl
+							}
+							metaTitle
+							metaDescription
+						}
+					}
+
+
           title
           singlePostPage {
             mainContentComponent {
@@ -106,7 +119,11 @@ const {
 } = await response.json();
 ---
 
-<Layout>
+<Layout
+  metaImg={post?.seoMetaTags?.seoMetaInformation?.metaImage?.sourceUrl}
+  metaTitle={post?.seoMetaTags?.seoMetaInformation?.metaTitle}
+  metaDescription={post?.seoMetaTags?.seoMetaInformation?.metaDescription}
+>
   <Hero featuredImage={post.singlePostPage.featuredImageComponent.image} />
   <WysiwygSingle
     wysiwyg={post.singlePostPage.mainContentComponent.content}
