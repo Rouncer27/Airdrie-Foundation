@@ -19,7 +19,14 @@ const Input = ({ label, id, type, handler, value, errors, required }) => {
         {label}
         {required && <span className="required">&#42;</span>}
       </label>
-      <input name={id} type={type} onChange={handler} value={value} id={id} />
+      <input
+        name={id}
+        type={type}
+        onChange={handler}
+        value={value}
+        id={id}
+        required={required}
+      />
     </div>
   );
 };
