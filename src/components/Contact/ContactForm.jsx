@@ -38,6 +38,9 @@ const ContactForm = ({ data }) => {
       };
     });
   };
+
+  console.log("formStatus: ", formStatus);
+
   return (
     <div className="contact-form">
       <div className="contact-form-wrapper">
@@ -73,6 +76,7 @@ const ContactForm = ({ data }) => {
                 label="First Name"
                 id="firstname"
                 type="text"
+                errors={formStatus.errors}
                 required={true}
               />
               <Input
@@ -84,6 +88,7 @@ const ContactForm = ({ data }) => {
                   handleOnChange(setFormData, formData, event)
                 }
                 required={true}
+                errors={formStatus.errors}
               />
             </div>
 
@@ -97,6 +102,7 @@ const ContactForm = ({ data }) => {
                   handleOnChange(setFormData, formData, event)
                 }
                 required={true}
+                errors={formStatus.errors}
               />
               <Input
                 label="Phone Number"
@@ -107,6 +113,7 @@ const ContactForm = ({ data }) => {
                   handleOnChange(setFormData, formData, event)
                 }
                 required={true}
+                errors={formStatus.errors}
               />
             </div>
 

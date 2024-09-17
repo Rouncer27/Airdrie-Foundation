@@ -12,6 +12,8 @@ const submitToWebServer = async (formID, data) => {
 
   if (serverResponse.data.status === "mail_sent") {
     return { errors: false, errorMessages: [] };
+  } else if (serverResponse.data.status === "validation_failed") {
+    return { errors: true, errorMessages: serverResponse.data.invalid_fields };
   } else {
     return { errors: true, errorMessages: serverResponse.data.invalid_fields };
   }

@@ -2,9 +2,11 @@
 @use "../../../styles/global/paragraphs";
 
 .of-form-textarea {
+  position: relative;
   width: calc(100% - 7rem);
   margin: 1rem auto;
   margin-right: 7rem;
+  margin-bottom: 3rem;
   padding: 1rem 0;
 
   label {
@@ -35,5 +37,13 @@
       margin-right: 0;
       width: 100%;
     }
+  }
+
+  .of-form-textarea-error {
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    color: red;
+    font-size: 1rem;
   }
 }
