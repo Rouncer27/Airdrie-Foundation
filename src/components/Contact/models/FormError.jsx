@@ -14,7 +14,7 @@ const FormError = ({ setFormStatus, formStatus }) => {
           If seems that there is a few errors with submitting your form.
           <br />
           Please try again, or you can email us directly by clicking{" "}
-          <a href="mailto:brianna@orangefrogprodutions.ca?subject=Contact Form Error">
+          <a href="mailto:info@airdriefoundation.ca?subject=Contact Form Error">
             Here
           </a>
         </p>
