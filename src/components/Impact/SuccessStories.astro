@@ -12,15 +12,18 @@ import "./successStories.scss";
     </div>
     {
       Astro.props.data.stories.map((story) => {
+        const imgUrl = story?.image?.sourceUrl ? story.image.sourceUrl : null;
         return (
           <div class="impact-stories-story">
             <div class="impact-stories-story-image">
               <div class="impact-stories-story-image-wrapper">
-                <Image
-                  src={story.image.sourceUrl}
-                  alt={story.image.altText}
-                  inferSize={true}
-                />
+                {imgUrl && (
+                  <Image
+                    src={story.image.sourceUrl}
+                    alt={story.image.altText ? story.image.altText : ""}
+                    inferSize={true}
+                  />
+                )}
               </div>
             </div>
             <div class="impact-stories-story-inner">
